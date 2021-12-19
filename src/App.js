@@ -17,7 +17,6 @@ function App() {
     resp.length !== 0
         ? setPosts([...posts, ...resp])
         : setPostEnd(true)
-
     setLoading(false)
     },[postPage])
 

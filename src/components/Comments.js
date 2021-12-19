@@ -5,9 +5,13 @@ export default function Comments({comments}){
             <p className="text-lg">Comments</p>
             <hr className="mb-5"/>
             <ul>
-                {comments.map(comment => <li key={comment.id} className="mb-3">
+
+                {comments.length !== 0
+                ? comments.map(comment => <li key={comment.id} className="mb-3">
                     {comment.body}
-                </li>)}
+                    </li>)
+                : <li>No comment</li> 
+                }
 
             </ul>
         </div>
