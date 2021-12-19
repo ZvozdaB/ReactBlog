@@ -9,14 +9,17 @@ function App() {
   let [posts,setPosts] = useState([]);
   let [postPage,setPostPage] = useState(1)
   let [postEnd,setPostEnd] = useState(false)
+  let [loading, setLoading] = useState(false)
 
-  useEffect(() => getPostPages(postPage)
-    .then(resp => {
-      resp.length !== 0 
-      ? setPosts([...posts, ...resp])
-      : setPostEnd(true)
-    }) 
-    ,[postPage])
+  useEffect(async () => {
+    setLoading(true)
+    let resp = await getPostPages(postPage)
+    resp.length !== 0
+        ? setPosts([...posts, ...resp])
+        : setPostEnd(true)
+
+    setLoading(false)
+    },[postPage])
 
   function morePosts(){
     setPostPage(++postPage)
@@ -26,8 +29,8 @@ function App() {
     <>
     <Header/>
       <Routes>
-        <Route path="/" element={<Home posts={posts} morePosts={morePosts} postEnd={postEnd}/>} />
-        <Route path="/post/:postId" element={<Post posts={posts}/>} />
+        <Route path="/" element={<Home posts={posts} morePosts={morePosts} postEnd={postEnd} loading={loading}/>} />
+        <Route path="/post/:postId" element={<Post posts={posts} morePosts={morePosts} postEnd={postEnd}/>} />
         
       </Routes>
     </>
