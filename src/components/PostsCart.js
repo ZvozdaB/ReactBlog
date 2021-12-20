@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 
-export default function PostsPrev({ title, body, id}){
+export default function PostsCart({ title, body, id}){
 
     let lastWord = body.indexOf(" ",100)
     let prevText = body.slice(0, lastWord) + "..."
     return(
-       <div className="border p-4">
+        <div className="border border-sky-200  p-4">
            <div className="mb-2">
                {/* <img /> */}
                <div>
