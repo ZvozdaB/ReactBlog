@@ -41,6 +41,7 @@ export default function Post(){
                 {loading ? <Loader /> : <PostDetails post={post} />}
                 <p className="text-lg mt-5">Comments</p>
                 <hr className="mb-5" />
+                
                 {loadingComments ? <Loader/> : <Comments comments={comments} />}
             </div>
         </main>

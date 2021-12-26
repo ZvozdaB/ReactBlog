@@ -1,3 +1,5 @@
+
+
 const URL = "https://ekreative-json-server.herokuapp.com"
 
 export async function fetchPostPages(page,limit=10){
@@ -30,14 +32,42 @@ export async function fetchLogIN(email,
         body: JSON.stringify({ email, password }) 
     }
     let resp = await fetch(URL + "/login", option)
-    let data = await resp.json()
+
+    if(resp.status === 200){
+        let data = await resp.json()
+        return data
+    }
+    throw new Error(resp.status)  
 }
+
+export async function fetchRegister(userData){
+    let option = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(userData) 
+    }
+    let resp = await fetch(URL + "/register", option)
+
+    if(resp.status === 201){
+        let data = await resp.json()
+        return data
+    }
+    throw new Error(resp.status)  
+}
+
+
+
+
+
+
+
 
 function getLastPage(Link){
     let linkArr = Link.split(",")
     let link = linkArr[linkArr.length - 1]
     let index = link.indexOf("_page=");
     let last = parseInt(link.slice(index + 6))
-    console.log(last);
     return last
 }

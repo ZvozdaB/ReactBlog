@@ -5,14 +5,16 @@ import Header from "./components/Header";
 import Post from "./page/Post";
 import Home from "./page/Home";
 import { getPostPages } from "./services/store/actions/posts";
+import { isUserLogIn } from "./services/store/actions/auth";
 
 function App() {
   let dispatch = useDispatch()
   let { curentPage } = useSelector(state => ({
     curentPage: state.posts.curentPage
   }))
-
+  useEffect(() => dispatch(isUserLogIn()),[])
   useEffect(() => dispatch(getPostPages(curentPage)),[curentPage])
+  
 
   return (
     <>

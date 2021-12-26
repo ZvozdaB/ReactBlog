@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Btn from "../components/Btn";
 import Loader from "../components/Loader/Loader";
@@ -26,7 +25,7 @@ export default function Home(props){
                     id={post.id}
                 /> )}
             </div>
-            {  
+            {  loading || lastPage === curentPage ||
                 <div className="flex justify-center">
                     <Btn onClick={() => dispatch(getNextPage())}>More posts</Btn>
                 </div>}
