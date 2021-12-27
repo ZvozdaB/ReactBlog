@@ -2,17 +2,16 @@ import { AUTH_LOGOUT, AUTH_SET_ERROR, AUTH_SET_USER } from "../actions/actionTyp
 
 const initialState = {
     user: {},
-    accessToken: "",
-    error: null
+    isUserLogin: false,
+    error: ""
     
 }
 export function authReduser(state = initialState, action) {
     switch (action.type) {
         case AUTH_SET_USER: 
-           return{ ...state, user: action.user, accessToken: action.accessToken }
+           return{ ...state, user: action.user, isUserLogin: true}
         case AUTH_LOGOUT:
-            console.log("=");
-            return {...state,  user: {}, accessToken: "",}
+            return {...state,  user: {},  isUserLogin: false}
         case AUTH_SET_ERROR:
             return {...state, error: action.error}
         

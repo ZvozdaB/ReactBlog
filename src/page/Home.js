@@ -23,6 +23,7 @@ export default function Home(props){
                     title={post.title} 
                     body={post.body}
                     id={post.id}
+                    updatedAt = {post.updatedAt}
                 /> )}
             </div>
             {  loading || lastPage === curentPage ||

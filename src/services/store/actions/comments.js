@@ -1,4 +1,4 @@
-import { fetchPostComments } from "../../Api"
+import { fetchCreatePostComment, fetchPostComments } from "../../Api"
 import { COMMENT_GET_POST_COMMENT_SUCCESS, COMMENT_LOADING_END, COMMENT_LOADING_START } from "./actionType"
 
 export function getPostComments(postId){
@@ -11,6 +11,12 @@ export function getPostComments(postId){
     }
 }
 
+export function CreatePostComment(commentData){
+    return async dispatch => {
+        await fetchCreatePostComment(commentData)
+        dispatch(getPostComments(commentData.postId))
+    }
+}
 
 function getPostCommentsSuccess(comments){
     return {

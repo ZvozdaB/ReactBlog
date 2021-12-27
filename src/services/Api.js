@@ -1,7 +1,5 @@
-
-
 const URL = "https://ekreative-json-server.herokuapp.com"
-
+// POST
 export async function fetchPostPages(page,limit=10){
     let resp = await fetch(URL + `/posts?_page=${page}&_limit=${limit}`)
     let lastPage = getLastPage(resp.headers.get("Link"))
@@ -10,18 +8,44 @@ export async function fetchPostPages(page,limit=10){
     return {data, lastPage, lastPost};
 }
 
-export async function fetchPostComments(postId) {
-    let resp = await fetch(URL + `/comments?postId=${postId}&_sort=createdAt&_order=asc`)
-    let date = await resp.json();
-    return date;
-}
-
 export async function fetchPostById(postId) {
     let resp = await fetch(URL + `/posts/${postId}`)
     let date = await resp.json();
     return date;
 }
 
+
+// COMMENT
+
+export async function fetchPostComments(postId) {
+    let resp = await fetch(URL + `/comments?postId=${postId}&_sort=updatedAt&_order=desc`)
+    let date = await resp.json();
+    return date;
+}
+
+export async function fetchCreatePostComment({body,postId}){
+    let date = new Date().toISOString()
+    let {userId,accessToken} = getUserData()
+    console.log(userId,accessToken)
+    let option = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': 'Bearer ' +  accessToken
+        },
+        body: JSON.stringify({body ,postId, userId, createdAt: date, updatedAt:date}) 
+    }
+    let resp = await fetch(URL + "/664/comments", option)
+
+    if(resp.status === 201){
+        let data = await resp.json()
+        return data
+    }
+    throw new Error(resp.status)  
+}
+
+
+// AUTH
 export async function fetchLogIN(email,
     password){
     let option = {
@@ -62,6 +86,11 @@ export async function fetchRegister(userData){
 
 
 
+function getUserData(){
+    let user = localStorage.getItem("user")
+    let {user: {userId} , accessToken} = JSON.parse(user)
+    return {userId, accessToken}
+}
 
 
 function getLastPage(Link){

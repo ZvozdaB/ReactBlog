@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
-import { LogIn } from "../../services/store/actions/auth"
+import { LogIn, } from "../../services/store/actions/auth"
 
 import Btn from "../Btn"
 import CenterPopUp from "../CenterPopUp"
@@ -8,16 +8,12 @@ import Input from "./Input"
 
 export default function LogInForm(props){
     let dispatch = useDispatch()
-    let {error,user} = useSelector(state => ({
+    let {error} = useSelector(state => ({
         error: state.auth.error,
-        user: state.auth.user
     }))
     let { register, handleSubmit, formState: { errors } } = useForm()
     let onSubmit = (data) => dispatch(LogIn(data.email, data.password))
 
-    if(user?.firstname){
-        props.logInHeandler()
-    }
 
     return (
         <CenterPopUp  onClick={props.logInHeandler}>
@@ -55,7 +51,7 @@ export default function LogInForm(props){
                 <Btn className="w-full">Submit</Btn>
                 <p className="p-1">
                     Don't have an account? 
-                    <span className="text-blue-500" onClick={props.singLogChange}> Sing Up</span>
+                    <span className="text-blue-500 cursor-pointer" onClick={props.singLogChange}> Sing Up</span>
                 </p>
             </form>
         </CenterPopUp>

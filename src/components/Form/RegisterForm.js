@@ -1,24 +1,19 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { UserRegist } from "../../services/store/actions/auth";
+import { setError, UserRegist } from "../../services/store/actions/auth";
 import Btn from "../Btn";
 import CenterPopUp from "../CenterPopUp";
 import Input from "./Input";
 
 export default function RegisterForm(props){
     let dispatch = useDispatch()
-    let {error,user} = useSelector(state => ({
+    let {error} = useSelector(state => ({
         error: state.auth.error,
-        user: state.auth.user
     }))
     let { register, handleSubmit, formState: { errors } } = useForm()
     let onSubmit = (data) => dispatch(UserRegist(data))
 
-    if(user?.firstname){
-        props.singUpHandler()
-    }
-    
-    
+
     return (
         <CenterPopUp onClick={props.singUpHandler}>
             <form onSubmit={handleSubmit(onSubmit)} className=" w-80 py-6 px-8 bg-white  rounded-lg">
@@ -92,7 +87,7 @@ export default function RegisterForm(props){
                 <Btn className="w-full">Submit</Btn>
                 <p className="p-1">
                     Don't have an account? 
-                    <span className="text-blue-500" onClick={props.singLogChange}> Log In</span>
+                    <span className="text-blue-500 cursor-pointer" onClick={ props.singLogChange}> Log In</span>
                 </p>
             </form>
         </CenterPopUp>
