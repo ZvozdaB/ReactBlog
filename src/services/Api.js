@@ -51,7 +51,7 @@ export async function fetchCreatePostComment({ body, postId }) {
 }
 
 export async function fetchDeletePostComments(commentId) {
-  let { userId, accessToken } = getUserData();
+  let { accessToken } = getUserData();
   let option = {
     method: "DELETE",
     headers: {
@@ -64,6 +64,25 @@ export async function fetchDeletePostComments(commentId) {
   return date;
 }
 
+export async function fetchUpdatePostComment(commentText, commentId) {
+  let date = new Date().toISOString();
+  let { accessToken } = getUserData();
+  let option = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: "Bearer " + accessToken,
+    },
+    body: JSON.stringify({
+      body: commentText,
+      updatedAt: date,
+    }),
+  };
+  let resp = await fetch(URL + `/664/comments/${commentId}`, option);
+  if (resp.status !== 200) {
+    window.alert("Something went wrong");
+  }
+}
 // AUTH
 export async function fetchLogIN(email, password) {
   let option = {

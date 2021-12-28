@@ -13,7 +13,7 @@ export function LogIn(email,password){
             .catch(err => dispatch(setError("Email or password not correct")) )
     }
 }
-export function UserRegist(userData){
+export function UserRegister(userData){
     return async dispatch => {
         fetchRegister(userData)
             .then((user) => {

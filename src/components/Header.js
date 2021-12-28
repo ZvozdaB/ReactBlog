@@ -31,8 +31,8 @@ export default function Header() {
     dispatch(setError(""));
   };
 
-  let [logOutQustion, setLogOutQustion] = useState(false);
-  let logOutHandler = () => setLogOutQustion(!logOutQustion);
+  let [logOutQuestion, setLogOutQuestion] = useState(false);
+  let logOutHandler = () => setLogOutQuestion(!logOutQuestion);
   let logOut = () => {
     dispatch(LogOut());
     logOutHandler();
@@ -69,7 +69,7 @@ export default function Header() {
           )}
         </nav>
       </div>
-      {logOutQustion && (
+      {logOutQuestion && (
         <QuestionBox
           YesText="Log Out"
           YesClick={logOut}
@@ -78,7 +78,7 @@ export default function Header() {
         />
       )}
       {logInOpen && (
-        <LogInForm logInHeandler={logInHandler} singLogChange={singLogChange} />
+        <LogInForm logInHandler={logInHandler} singLogChange={singLogChange} />
       )}
       {singUpOpen && (
         <RegisterForm

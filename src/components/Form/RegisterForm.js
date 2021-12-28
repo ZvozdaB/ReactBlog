@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { setError, UserRegist } from "../../services/store/actions/auth";
+import { UserRegister } from "../../services/store/actions/auth";
 import Btn from "../Btn";
 import CenterPopUp from "../CenterPopUp";
 import Input from "./FormComponents/Input";
@@ -15,7 +15,7 @@ export default function RegisterForm(props) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  let onSubmit = (data) => dispatch(UserRegist(data));
+  let onSubmit = (data) => dispatch(UserRegister(data));
 
   return (
     <CenterPopUp onClick={props.singUpHandler}>

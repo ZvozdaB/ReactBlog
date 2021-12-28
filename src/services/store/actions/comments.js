@@ -2,6 +2,7 @@ import {
   fetchCreatePostComment,
   fetchDeletePostComments,
   fetchPostComments,
+  fetchUpdatePostComment,
 } from "../../Api";
 import {
   COMMENT_GET_POST_COMMENT_SUCCESS,
@@ -24,7 +25,12 @@ export function CreatePostComment(commentData) {
     dispatch(getPostComments(commentData.postId));
   };
 }
-
+export function UpdatePostComment({commentText, commentId, postId}) {
+  return async (dispatch) => {
+    await fetchUpdatePostComment(commentText, commentId);
+    dispatch(getPostComments(postId));
+  };
+}
 export function DeletePostComment(commentId, postId) {
   return async (dispatch) => {
     await fetchDeletePostComments(commentId);

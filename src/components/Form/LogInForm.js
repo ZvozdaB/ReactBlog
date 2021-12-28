@@ -19,7 +19,7 @@ export default function LogInForm(props) {
   let onSubmit = (data) => dispatch(LogIn(data.email, data.password));
 
   return (
-    <CenterPopUp onClick={props.logInHeandler}>
+    <CenterPopUp onClick={props.logInHandler}>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className=" w-80 py-6 px-8 bg-white  rounded-lg "
