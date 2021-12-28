@@ -1,25 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux'
-import { applyMiddleware, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import rootReduser from './services/store/reduser/rootReduser';
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import { applyMiddleware, createStore } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./services/store/reduser/rootReducer";
 
-let store = createStore(rootReduser,applyMiddleware(thunk))
+let store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store} >
+      <Provider store={store}>
         <App />
-      </Provider> 
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

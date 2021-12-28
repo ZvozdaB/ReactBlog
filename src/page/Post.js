@@ -31,7 +31,7 @@ export default function Post() {
 
   return (
     <main>
-      <div className="container mx-auto ">
+      <div className="wrapper ">
         <div className="flex py-4 items-center justify-between text-gray-100">
           {PreviousBtn(postId)}
           {NextBtn(postId, lastPost)}

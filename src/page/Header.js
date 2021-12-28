@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { LogOut, setError } from "../services/store/actions/auth";
-import LogInForm from "./Form/LogInForm";
-import RegisterForm from "./Form/RegisterForm";
+import { isUserLogIn, LogOut, setError } from "../services/store/actions/auth";
+import LogInForm from "../components/Form/LogInForm";
+import RegisterForm from "../components/Form/RegisterForm";
 import QuestionBox from "../custom hooks/QuestionBox";
 
 export default function Header() {
@@ -46,13 +46,18 @@ export default function Header() {
   return (
     <>
       <div className="bg-blue-400  text-white">
-        <nav className="flex container mx-auto h-14 items-center">
+        <nav className="flex wrapper h-14 items-center">
           <NavLink to="/" className="pr-4">
             Home
           </NavLink>
           <NavLink to="/announcements" className={"pr-4"}>
             Announcements
           </NavLink>
+          {isUserLogIn && (
+            <NavLink to="/addPost" className={"pr-4"}>
+              + Add Post
+            </NavLink>
+          )}
           {isUserLogin ? (
             <div className="ml-auto">
               <span>

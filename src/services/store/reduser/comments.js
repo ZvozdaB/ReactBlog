@@ -4,7 +4,7 @@ const initialState = {
     comments:[],
     loading: false
 }
-export function commentsReduser(state = initialState, action){
+export function commentsReducer(state = initialState, action){
     switch(action.type){
         case COMMENT_LOADING_START:
             return {
