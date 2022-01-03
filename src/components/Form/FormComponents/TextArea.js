@@ -6,10 +6,12 @@ export default function TextArea({
   error,
   placeholder,
   className,
+  minRows,
 }) {
   let inputCls = error
-    ? "border py-1 px-2 border-red-400 overflow-hidden resize-none"
-    : "border py-1 px-2 overflow-hidden resize-none";
+    ? "border py-1 px-2 border-red-400 overflow-hidden resize-none "
+    : "border py-1 px-2 overflow-hidden resize-none ";
+
   return (
     <div className={"flex flex-col mb-4 " + className}>
       <TextareaAutosize
@@ -18,6 +20,7 @@ export default function TextArea({
         {...register}
         placeholder={placeholder}
         className={inputCls}
+        minRows={minRows}
       />
       {error && <p className="text-red-400">{error.message}</p>}
     </div>

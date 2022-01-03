@@ -1,20 +1,22 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-import Header from "./page/Header";
 import Post from "./page/Post";
 import Home from "./page/Home";
 import { getPostPages } from "./services/store/actions/posts";
 import { isUserLogIn } from "./services/store/actions/auth";
 import AddPost from "./page/AddPost";
 import Announcements from "./page/Announcements";
+import Header from "./components/Header";
+import EditPost from "./page/EditPost";
+import { getUsers } from "./services/store/actions/users";
 
 function App() {
   let dispatch = useDispatch();
   let { currentPage } = useSelector((state) => ({
     currentPage: state.posts.currentPage,
   }));
-  useEffect(() => dispatch(isUserLogIn()), []);
+  useEffect(() => {dispatch(isUserLogIn());dispatch(getUsers())}, []);
   useEffect(() => dispatch(getPostPages(currentPage)), [currentPage]);
 
   return (
@@ -24,6 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/addPost" element={<AddPost />} />
         <Route path="/post/:postId" element={<Post />} />
+        <Route path="/post/:postId/edit" element={<EditPost />} />
         <Route path="/announcements" element={<Announcements />} />
       </Routes>
     </>

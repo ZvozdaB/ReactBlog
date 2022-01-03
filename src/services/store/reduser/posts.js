@@ -5,6 +5,7 @@ import {
   POST_FIND_POST_BY_ID,
   POST_GET_NEXT_PAGE,
   POST_GET_POST_BY_ID_SUCCESS,
+  POST_RESET_POST,
 } from "../actions/actionType";
 
 const initialState = {
@@ -38,6 +39,10 @@ export function postsReducer(state = initialState, action) {
       return {
         ...state,
         currentPage: state.currentPage + 1,
+      };
+    case POST_RESET_POST:
+      return {
+        ...initialState,
       };
     case POST_FIND_POST_BY_ID:
     case POST_GET_POST_BY_ID_SUCCESS:

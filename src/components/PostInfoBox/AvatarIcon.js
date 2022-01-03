@@ -7,6 +7,14 @@ import Avatar5 from "../../assets/avatar/avatar-5.svg";
 import Avatar6 from "../../assets/avatar/avatar-6.svg";
 
 export default function AvatarIcon({ num = 0, className }) {
-  let avatarArr = [Avatar, Avatar1];
+  let avatarArr = [
+    Avatar,
+    Avatar1,
+    Avatar2,
+    Avatar3,
+    Avatar4,
+    Avatar5,
+    Avatar6,
+  ];
   return <img src={avatarArr[num]} className={"h-10 mr-4 " + className} />;
 }

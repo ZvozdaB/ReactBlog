@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import CommentsItem from "./CommentsItem/CommentsItem";
-import UserComment from "./UserComment/UserComment";
+import UserComment from "./CommentsItem/CommentsItem";
 
 export default function Comments() {
   let { comments, userId } = useSelector((state) => ({
@@ -13,18 +13,15 @@ export default function Comments() {
   return (
     <ul>
       {comments.length !== 0 ? (
-        comments.map((comment) =>
-          comment.userId === userId ? (
-            <UserComment
-              key={comment.id}
-              comment={comment}
-              editCommentHandler={editCommentHandler}
-              editCommentNumber={editCommentNumber}
-            />
-          ) : (
-            <CommentsItem key={comment.id} comment={comment} />
-          )
-        )
+        comments.map((comment) => (
+          <CommentsItem
+            userId={userId}
+            key={comment.id}
+            comment={comment}
+            editCommentHandler={editCommentHandler}
+            editCommentNumber={editCommentNumber}
+          />
+        ))
       ) : (
         <li>No comment</li>
       )}

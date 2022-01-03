@@ -1,7 +1,9 @@
 const URL = "https://ekreative-json-server.herokuapp.com";
 // POST
 export async function fetchPostPages(page, limit = 10) {
-  let resp = await fetch(URL + `/posts?_page=${page}&_limit=${limit}`);
+  let resp = await fetch(
+    URL + `/posts?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc`
+  );
   let lastPage = getLastPage(resp.headers.get("Link"));
   let lastPost = resp.headers.get("X-Total-Count");
   let data = await resp.json();
@@ -12,6 +14,68 @@ export async function fetchPostById(postId) {
   let resp = await fetch(URL + `/posts/${postId}`);
   let date = await resp.json();
   return date;
+}
+
+export async function fetchCreatePost({ body, title }) {
+  let date = new Date().toISOString();
+  let { userId, accessToken } = getUserData();
+  let option = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: "Bearer " + accessToken,
+    },
+    body: JSON.stringify({
+      body,
+      title,
+      userId,
+      createdAt: date,
+      updatedAt: date,
+    }),
+  };
+  let resp = await fetch(URL + "/664/posts", option);
+
+  if (resp.status === 201) {
+    let data = await resp.json();
+    return data;
+  }
+  throw new Error(resp.status);
+}
+
+export async function fetchDeletePost(postId) {
+  let { accessToken } = getUserData();
+  let option = {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + accessToken,
+    },
+  };
+
+  let resp = await fetch(URL + `/664/posts/${postId}`, option);
+  let date = await resp.json();
+  return date;
+}
+
+export async function fetchUpdatePost({ title, body, postId }) {
+  let date = new Date().toISOString();
+  let { accessToken, userId } = getUserData();
+  let option = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+      Authorization: "Bearer " + accessToken,
+    },
+    body: JSON.stringify({
+      body,
+      title,
+      userId,
+      updatedAt: date,
+    }),
+  };
+  let resp = await fetch(URL + `/664/posts/${postId}`, option);
+  if (resp.status !== 200) {
+    window.alert("Something went wrong");
+  }
 }
 
 // COMMENT
@@ -116,6 +180,12 @@ export async function fetchRegister(userData) {
     return data;
   }
   throw new Error(resp.status);
+}
+// USERS
+export async function fetchUsers() {
+  let resp = await fetch(URL + `/users`);
+  let date = await resp.json();
+  return date;
 }
 
 function getUserData() {

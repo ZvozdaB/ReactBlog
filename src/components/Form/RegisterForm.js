@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { UserRegister } from "../../services/store/actions/auth";
 import Btn from "../Btn";
 import CenterPopUp from "../CenterPopUp";
+import { AvatarSelector } from "./AvatarSlector";
 import Input from "./FormComponents/Input";
 
 export default function RegisterForm(props) {
   let dispatch = useDispatch();
+  let [avatarId, setAvatarId] = useState(1);
   let { error } = useSelector((state) => ({
     error: state.auth.error,
   }));
@@ -15,7 +18,8 @@ export default function RegisterForm(props) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  let onSubmit = (data) => dispatch(UserRegister(data));
+  let onSubmit = (data) =>
+    dispatch(UserRegister({ ...data, avatar: avatarId }));
 
   return (
     <CenterPopUp onClick={props.singUpHandler}>
@@ -91,6 +95,8 @@ export default function RegisterForm(props) {
           })}
           error={errors.password}
         />
+        <p className="mb-1">Select Avatar</p>
+        <AvatarSelector setAvatarId={setAvatarId} avatarId={avatarId} />
         <Btn className="w-full">Submit</Btn>
         <p className="p-1">
           Don't have an account?

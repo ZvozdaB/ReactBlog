@@ -5,7 +5,7 @@ import Comments from "../components/Comments/Comments";
 import CommentForm from "../components/Form/CommentForm";
 import Loader from "../components/Loader/Loader";
 import PostDetails from "../components/PostDetails";
-import { NextBtn, PreviousBtn } from "../custom hooks/PostNavBtn";
+import { NextBtn, PostNavBtn, PreviousBtn } from "../custom hooks/PostNavBtn";
 import { getPostComments } from "../services/store/actions/comments";
 import { findPostByID, getPostById } from "../services/store/actions/posts";
 
@@ -33,10 +33,9 @@ export default function Post() {
     <main>
       <div className="wrapper ">
         <div className="flex py-4 items-center justify-between text-gray-100">
-          {PreviousBtn(postId)}
-          {NextBtn(postId, lastPost)}
+          <PostNavBtn postId={postId} />
         </div>
-        {loading ? <Loader /> : <PostDetails post={post} />}
+        {loading ? <Loader /> : <PostDetails post={post} userId={user.id} />}
         <p className="text-lg mt-5">Comments</p>
         <hr className="mb-5" />
         {isUserLogin ? (

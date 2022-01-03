@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { isUserLogIn, LogOut, setError } from "../services/store/actions/auth";
-import LogInForm from "../components/Form/LogInForm";
-import RegisterForm from "../components/Form/RegisterForm";
+import LogInForm from "./Form/LogInForm";
+import RegisterForm from "./Form/RegisterForm";
 import QuestionBox from "../custom hooks/QuestionBox";
 
 export default function Header() {

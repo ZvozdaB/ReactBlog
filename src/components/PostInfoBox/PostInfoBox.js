@@ -1,12 +1,16 @@
 import { getDate } from "../../custom hooks/getDate";
+import { useUserById } from "../../custom hooks/useUserById";
 import AvatarIcon from "./AvatarIcon";
 
-export default function PostInfoBox({ username, updatedAt }) {
+export default function PostInfoBox({ userId, updatedAt }) {
+  let user = useUserById(userId);
   return (
     <div className="mb-2  flex items-center">
-      <AvatarIcon />
+      <AvatarIcon num={user?.avatar} />
       <div className="flex flex-col">
-        <span>user name</span>
+        <span>
+          {user?.firstname} {user?.lastname}
+        </span>
         <span>{getDate(updatedAt)}</span>
       </div>
     </div>

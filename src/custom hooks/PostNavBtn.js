@@ -1,13 +1,35 @@
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import Btn from "../components/Btn";
+import { getNextPage } from "../services/store/actions/posts";
 
-export function PreviousBtn(postId){
-    return +postId !== 1
-        ? <Btn><Link to={"/post/" + (+postId - 1)}> &lt; Previous</Link></Btn>
-        : <span></span>
-}
-export function NextBtn(postId,lastPost){
-    return +postId < lastPost
-        ? <Btn><Link to={"/post/" + (+postId + 1)}>Next &gt;</Link></Btn>
-        : <span></span>
+export function PostNavBtn() {
+  let PreviousBtn = <span></span>;
+  let NextBtn = <span></span>;
+
+  // if (posts[0]?.id !== +postId) {
+  //   let previousPostId = posts[postIndex - 1]?.id;
+  //   PreviousBtn = (
+  //     <Btn>
+  //       <Link to={"/post/" + previousPostId}> &lt; Previous</Link>
+  //     </Btn>
+  //   );
+  // }
+
+  // let nextPostId = posts[postIndex + 1]?.id;
+  // if (nextPostId) {
+  //   NextBtn = (
+  //     <Btn>
+  //       <Link to={"/post/" + nextPostId}>Next &gt;</Link>
+  //     </Btn>
+  //   );
+  // }
+
+  return (
+    <>
+      {PreviousBtn}
+      {NextBtn}
+    </>
+  );
 }

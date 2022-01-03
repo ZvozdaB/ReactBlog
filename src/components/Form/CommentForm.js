@@ -29,7 +29,7 @@ export default function CommentForm() {
           id="comment"
           placeholder="Enter comment"
           register={register("comment", {
-            validate: (value) =>  !!value.trim() || "Comment cannot be empty",
+            validate: (value) => !!value.trim() || "Comment can't be empty",
           })}
           error={errors.comment}
         />
