@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { sliceText } from "../custom hooks/sliceText";
 import { DeletePost } from "../services/store/actions/posts";
 import PostInfoBox from "./PostInfoBox/PostInfoBox";
-import SubMenu from "./SubMenu";
+import SubMenu from "../custom hooks/SubMenu";
 
 export default function PostsCart({ post, userId }) {
   let navigate = useNavigate();

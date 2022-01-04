@@ -1,5 +1,4 @@
-import PostDetails from "../PostDetails";
-import AvatarIcon from "../PostInfoBox/AvatarIcon";
+import AvatarIcon from "../../AvatarIcon/AvatarIcon";
 
 export function AvatarSelector({ setAvatarId, avatarId }) {
   let arr = new Array(6).fill(1).map((item, index) => (item = index + 1));

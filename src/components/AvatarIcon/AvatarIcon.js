@@ -16,5 +16,11 @@ export default function AvatarIcon({ num = 0, className }) {
     Avatar5,
     Avatar6,
   ];
-  return <img src={avatarArr[num]} className={"h-10 mr-4 " + className} />;
+  return (
+    <img
+      src={avatarArr[num]}
+      className={"h-10 mr-4 " + className}
+      alt="user avatar"
+    />
+  );
 }

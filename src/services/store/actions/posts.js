@@ -1,11 +1,10 @@
-import { data } from "autoprefixer";
 import {
   fetchCreatePost,
   fetchDeletePost,
   fetchPostById,
   fetchPostPages,
   fetchUpdatePost,
-} from "../../Api";
+} from "../../Api/postsApi";
 import {
   POSTS_GET_POSTS_SUCCESS,
   POSTS_LOADING_END,

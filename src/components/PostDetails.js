@@ -1,9 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DeletePost } from "../services/store/actions/posts";
-import AvatarIcon from "./PostInfoBox/AvatarIcon";
 import PostInfoBox from "./PostInfoBox/PostInfoBox";
-import SubMenu from "./SubMenu";
+import SubMenu from "../custom hooks/SubMenu";
 
 export default function PostDetails({ post, userId }) {
   let navigate = useNavigate();

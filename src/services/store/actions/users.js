@@ -1,4 +1,4 @@
-import { fetchUsers } from "../../Api";
+import { fetchUsers } from "../../Api/userApi";
 import { USER_GET_USER_SUCCESS } from "./actionType";
 
 export function getUsers() {

@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import Btn from "../components/Btn";
-import { getNextPage } from "../services/store/actions/posts";
+// import { useRef, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { Link, useParams } from "react-router-dom";
+// import Btn from "../components/Btn/Btn";
+// import { getNextPage } from "../services/store/actions/posts";
 
 export function PostNavBtn() {
   let PreviousBtn = <span></span>;

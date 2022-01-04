@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useUserById } from "../../../custom hooks/useUserById";
 import { DeletePostComment } from "../../../services/store/actions/comments";
-import AvatarIcon from "../../PostInfoBox/AvatarIcon";
-import SubMenu from "../../SubMenu";
+import AvatarIcon from "../../AvatarIcon/AvatarIcon";
+import SubMenu from "../../../custom hooks/SubMenu";
 import EditComment from "./EditComment/EditComment";
 
 export default function CommentsItem({

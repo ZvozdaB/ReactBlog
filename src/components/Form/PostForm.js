@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Btn from "../Btn";
+import Btn from "../Btn/Btn";
 import TextArea from "./FormComponents/TextArea";
 
 export default function PostForm({ onSubmit, post }) {
@@ -41,7 +41,7 @@ export default function PostForm({ onSubmit, post }) {
         minRows={4}
       />
       <div className="w-full flex justify-end">
-        <Btn>Add Post</Btn>
+        <Btn>Submit</Btn>
       </div>
     </form>
   );

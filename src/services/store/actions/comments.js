@@ -3,7 +3,7 @@ import {
   fetchDeletePostComments,
   fetchPostComments,
   fetchUpdatePostComment,
-} from "../../Api";
+} from "../../Api/commentsApi";
 import {
   COMMENT_GET_POST_COMMENT_SUCCESS,
   COMMENT_LOADING_END,
@@ -25,7 +25,7 @@ export function CreatePostComment(commentData) {
     dispatch(getPostComments(commentData.postId));
   };
 }
-export function UpdatePostComment({commentText, commentId, postId}) {
+export function UpdatePostComment({ commentText, commentId, postId }) {
   return async (dispatch) => {
     await fetchUpdatePostComment(commentText, commentId);
     dispatch(getPostComments(postId));

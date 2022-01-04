@@ -1,7 +1,7 @@
 import { useState } from "react";
 import editIcon from "../assets/icon/edit.svg";
 import deleteIcon from "../assets/icon/delete.svg";
-import QuestionBox from "../custom hooks/QuestionBox";
+import QuestionBox from "./QuestionBox";
 
 export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
   let [subMenuOpen, setSubMenuOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
         {subMenuOpen && (
           <div className="py-3 px-5 border flex flex-col items-start bg-white">
             <div className="flex items-center" onClick={onEdit}>
-              <img src={editIcon} className=" h-4 pr-2" />
+              <img src={editIcon} className=" h-4 pr-2" alt="edit icon" />
               <button className="hover:underline">Edit</button>
             </div>
 
@@ -40,7 +40,7 @@ export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
                 subMenuHandler();
               }}
             >
-              <img src={deleteIcon} className=" h-4 pr-2" />
+              <img src={deleteIcon} className=" h-4 pr-2" alt="delete icon" />
               <button className="hover:underline">Delete</button>
             </div>
           </div>

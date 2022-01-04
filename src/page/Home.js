@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import Btn from "../components/Btn";
+import Btn from "../components/Btn/Btn";
 import Loader from "../components/Loader/Loader";
 import PostsCart from "../components/PostsCart";
-import { getNextPage, getPostPages } from "../services/store/actions/posts";
+import { getNextPage } from "../services/store/actions/posts";
 
 export default function Home(props) {
   let dispatch = useDispatch();

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { UpdatePostComment } from "../../../../services/store/actions/comments";
-import Btn from "../../../Btn";
+import Btn from "../../../Btn/Btn";
 import TextArea from "../../../Form/FormComponents/TextArea";
 
 export default function EditComment({ comment, onCancel }) {

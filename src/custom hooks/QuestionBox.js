@@ -1,5 +1,5 @@
-import Btn from "../components/Btn";
-import CenterPopUp from "../components/CenterPopUp";
+import Btn from "../components/Btn/Btn";
+import CenterPopUp from "../components/CenterPopUp/CenterPopUp";
 
 export default function QuestionBox({ YesText, YesClick, NoClick, question }) {
   return (

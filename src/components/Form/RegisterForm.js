@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { UserRegister } from "../../services/store/actions/auth";
-import Btn from "../Btn";
-import CenterPopUp from "../CenterPopUp";
-import { AvatarSelector } from "./AvatarSlector";
+import Btn from "../Btn/Btn";
+import CenterPopUp from "../CenterPopUp/CenterPopUp";
+import { AvatarSelector } from "./FormComponents/AvatarSelector";
 import Input from "./FormComponents/Input";
 
 export default function RegisterForm(props) {

@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { CreatePostComment } from "../../services/store/actions/comments";
-import Btn from "../Btn";
-import AvatarIcon from "../PostInfoBox/AvatarIcon";
+import Btn from "../Btn/Btn";
+import AvatarIcon from "../AvatarIcon/AvatarIcon";
 import TextArea from "./FormComponents/TextArea";
 
 export default function CommentForm() {

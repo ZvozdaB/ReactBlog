@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { LogIn } from "../../services/store/actions/auth";
 
-import Btn from "../Btn";
-import CenterPopUp from "../CenterPopUp";
+import Btn from "../Btn/Btn";
+import CenterPopUp from "../CenterPopUp/CenterPopUp";
 import Input from "./FormComponents/Input";
 
 export default function LogInForm(props) {
