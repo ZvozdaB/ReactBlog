@@ -39,3 +39,8 @@ export async function fetchUsers() {
   let date = await resp.json();
   return date;
 }
+export async function fetchUserById(userId) {
+  let resp = await fetch(URL + `/users/` + userId);
+  let date = await resp.json();
+  return date;
+}
