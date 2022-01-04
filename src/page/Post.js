@@ -5,7 +5,6 @@ import Comments from "../components/Comments/Comments";
 import CommentForm from "../components/Form/CommentForm";
 import Loader from "../components/Loader/Loader";
 import PostDetails from "../components/PostDetails";
-import { NextBtn, PostNavBtn, PreviousBtn } from "../custom hooks/PostNavBtn";
 import { getPostComments } from "../services/store/actions/comments";
 import { findPostByID, getPostById } from "../services/store/actions/posts";
 
@@ -31,10 +30,7 @@ export default function Post() {
 
   return (
     <main>
-      <div className="wrapper ">
-        <div className="flex py-4 items-center justify-between text-gray-100">
-          <PostNavBtn postId={postId} />
-        </div>
+      <div className="wrapper py-4 ">
         {loading ? <Loader /> : <PostDetails post={post} userId={user.id} />}
         <p className="text-lg mt-5">Comments</p>
         <hr className="mb-5" />

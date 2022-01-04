@@ -3,37 +3,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import PostForm from "../components/Form/PostForm";
 import {
-  findPostByID,
-  getPostById,
-  UpdatePost,
-} from "../services/store/actions/posts";
+  getAnnoById,
+  UpdateAnno,
+} from "../services/store/actions/announcements";
 
-export default function EditPost() {
-  let { postId } = useParams();
+export default function EditAnno() {
+  let { annoId } = useParams();
   let navigate = useNavigate();
   let dispatch = useDispatch();
-  let { posts, post, user } = useSelector((state) => ({
-    posts: state.posts.posts,
-    post: state.posts.post,
+  let { anno, user } = useSelector((state) => ({
+    anno: state.anno.anno,
     user: state.auth.user,
   }));
 
   let onSubmit = (data) => {
-    navigate("/");
-    dispatch(UpdatePost({ ...data, postId }));
+    navigate("/announcements");
+    dispatch(UpdateAnno({ ...data, annoId }));
   };
   useEffect(() => {
-    let post = posts.find((post) => post.id === +postId);
-    post ? dispatch(findPostByID(post)) : dispatch(getPostById(postId));
-  }, [postId]);
+    dispatch(getAnnoById(annoId));
+  }, [annoId]);
 
   return (
     <div className="wrapper py-4">
       <h2 className="text-center text-xl font-bold tracking-wide text-sky-600">
-        Edit your post
+        Edit your announcements
       </h2>
-      {user.id === post.userId ? (
-        <PostForm textObg={post} onSubmit={onSubmit} />
+      {user.id === anno?.userId ? (
+        <PostForm
+          textObg={anno}
+          onSubmit={onSubmit}
+          label={{ title: "Title", body: "Announcement text" }}
+        />
       ) : (
         <p className="mb-4 font-semibold underline">
           {user?.firstname || ""} you can edit only your post

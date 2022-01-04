@@ -54,9 +54,14 @@ export default function Header() {
             Announcements
           </NavLink>
           {isUserLogIn && (
-            <NavLink to="/addPost" className={"pr-4"}>
-              + Add Post
-            </NavLink>
+            <>
+              <NavLink to="/addPost" className={"pr-4"}>
+                + Add Post
+              </NavLink>
+              <NavLink to="/Announcements/addAnno" className={"pr-4"}>
+                + Add Announcements
+              </NavLink>
+            </>
           )}
           {isUserLogin ? (
             <div className="ml-auto">

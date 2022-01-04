@@ -18,3 +18,11 @@ export function getOption(method, data) {
     body: JSON.stringify({ ...data, userId }),
   };
 }
+
+export function getLastPage(Link) {
+  let linkArr = Link.split(",");
+  let link = linkArr[linkArr.length - 1];
+  let index = link.indexOf("_page=");
+  let last = parseInt(link.slice(index + 6));
+  return last;
+}

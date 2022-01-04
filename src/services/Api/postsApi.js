@@ -1,5 +1,5 @@
 import { URL } from "./URL";
-import { getOption } from "./services";
+import { getOption, getLastPage } from "./services";
 
 export async function fetchPostPages(page, limit = 10) {
   let resp = await fetch(
@@ -49,12 +49,4 @@ export async function fetchUpdatePost({ title, body, postId }) {
   if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
-}
-
-function getLastPage(Link) {
-  let linkArr = Link.split(",");
-  let link = linkArr[linkArr.length - 1];
-  let index = link.indexOf("_page=");
-  let last = parseInt(link.slice(index + 6));
-  return last;
 }

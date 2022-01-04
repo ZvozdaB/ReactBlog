@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import PostForm from "../components/Form/PostForm";
-import { CreatePost } from "../services/store/actions/posts";
+import { CreateAnno } from "../services/store/actions/announcements";
 
-export default function AddPost() {
+export default function AddAnno() {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let { isUserLogin } = useSelector((state) => ({
@@ -11,16 +11,20 @@ export default function AddPost() {
   }));
 
   let onSubmit = (data) => {
-    navigate("/");
-    dispatch(CreatePost(data));
+    navigate("/announcements");
+    dispatch(CreateAnno(data));
   };
   return (
     <div className="wrapper py-4">
       <h2 className="text-center text-xl font-bold tracking-wide text-sky-600">
-        Create new post
+        Create new Announcements
       </h2>
       {isUserLogin ? (
-        <PostForm onSubmit={onSubmit} />
+        <PostForm
+          onSubmit={onSubmit}
+          label={{ title: "Title", body: "Announcement text" }}
+          placeholder={{ title: "Add title", body: " Add announcements text" }}
+        />
       ) : (
         <p className="mb-4 font-semibold underline">
           Only authorized users can add post
