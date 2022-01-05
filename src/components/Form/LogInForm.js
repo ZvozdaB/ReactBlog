@@ -22,7 +22,7 @@ export default function LogInForm(props) {
     <CenterPopUp onClick={props.logInHandler}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" w-80 py-6 px-8 bg-white  rounded-lg "
+        className=" w-80 py-6 px-8 bg-slate-50  rounded-lg "
         noValidate
       >
         <p className="text-lg font-bold text-center mb-4">Login</p>
@@ -58,12 +58,11 @@ export default function LogInForm(props) {
         />
         <Btn className="w-full">Submit</Btn>
         <p className="p-1">
-          Don't have an account?
+          Don't have an account?{" "}
           <span
-            className="text-blue-500 cursor-pointer"
+            className="text-blue-500 cursor-pointer hover:underline"
             onClick={props.singLogChange}
           >
-            {" "}
             Sing Up
           </span>
         </p>

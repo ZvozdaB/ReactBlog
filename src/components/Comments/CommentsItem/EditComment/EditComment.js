@@ -38,7 +38,7 @@ export default function EditComment({ comment, onCancel }) {
       />
       <div className="w-full flex justify-end">
         <Btn>Submit</Btn>
-        <Btn className="bg-slate-500 ml-4" onClick={onCancel} type="button">
+        <Btn cancel className="ml-4" onClick={onCancel} type="button">
           Cancel
         </Btn>
       </div>

@@ -11,3 +11,12 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+.blocked {
+  overflow: hidden;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50;
+  }
+}

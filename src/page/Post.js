@@ -35,7 +35,7 @@ export default function Post() {
         <p className="text-lg mt-5">Comments</p>
         <hr className="mb-5" />
         {isUserLogin ? (
-          <CommentForm />
+          <CommentForm avatar={user.avatar} />
         ) : (
           <p className="mb-4 font-semibold underline">
             Only authorized users can comment

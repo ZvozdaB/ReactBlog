@@ -6,9 +6,9 @@ export default function PostInfoBox({ userId, updatedAt }) {
   let user = useUserById(userId);
   return (
     <div className="mb-2  flex items-center">
-      <AvatarIcon num={user?.avatar} />
+      <AvatarIcon avatarId={user?.avatar} />
       <div className="flex flex-col">
-        <span>
+        <span className="font-medium ">
           {user?.firstname} {user?.lastname}
         </span>
         <span>{getDate(updatedAt)}</span>

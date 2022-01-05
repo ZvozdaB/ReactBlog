@@ -6,7 +6,7 @@ import Avatar4 from "../../assets/avatar/avatar-4.svg";
 import Avatar5 from "../../assets/avatar/avatar-5.svg";
 import Avatar6 from "../../assets/avatar/avatar-6.svg";
 
-export default function AvatarIcon({ num = 0, className }) {
+export default function AvatarIcon({ avatarId = 0, className }) {
   let avatarArr = [
     Avatar,
     Avatar1,
@@ -16,9 +16,12 @@ export default function AvatarIcon({ num = 0, className }) {
     Avatar5,
     Avatar6,
   ];
+  if (avatarId > avatarArr.length || typeof avatarId !== "number") {
+    avatarId = 0;
+  }
   return (
     <img
-      src={avatarArr[num]}
+      src={avatarArr[avatarId]}
       className={"h-10 mr-4 " + className}
       alt="user avatar"
     />

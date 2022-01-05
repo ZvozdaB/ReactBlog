@@ -7,7 +7,9 @@ export default function Input({
   placeholder,
   className,
 }) {
-  let inputCls = error ? "border py-1 px-2 border-red-400" : "border py-1 px-2";
+  let inputCls =
+    "border py-1 px-2 focus:outline-none focus:border-sky-500 focus:rounded hover:shadow ";
+  inputCls += error ? " border-red-400 " : "";
   return (
     <div className={"flex flex-col mb-4 " + className}>
       <label htmlFor={id} className="mb-1">

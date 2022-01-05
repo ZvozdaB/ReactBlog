@@ -8,9 +8,9 @@ export default function TextArea({
   className,
   minRows,
 }) {
-  let inputCls = error
-    ? "border py-1 px-2 border-red-400 overflow-hidden resize-none "
-    : "border py-1 px-2 overflow-hidden resize-none ";
+  let inputCls =
+    "border py-1 px-2 overflow-hidden resize-none focus:outline-none focus:border-sky-500 focus:rounded hover:shadow ";
+  inputCls += error ? "border-red-400 " : " ";
 
   return (
     <div className={"flex flex-col mb-4 " + className}>

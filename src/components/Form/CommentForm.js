@@ -6,7 +6,7 @@ import Btn from "../Btn/Btn";
 import AvatarIcon from "../AvatarIcon/AvatarIcon";
 import TextArea from "./FormComponents/TextArea";
 
-export default function CommentForm() {
+export default function CommentForm({ avatar }) {
   let { postId } = useParams();
   let dispatch = useDispatch();
   let {
@@ -23,7 +23,7 @@ export default function CommentForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="pb-4">
       <div className="flex">
-        <AvatarIcon />
+        <AvatarIcon avatarId={avatar} />
         <TextArea
           className="grow"
           id="comment"

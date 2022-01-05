@@ -13,7 +13,7 @@ export default function PostsCart({ post, userId }) {
   };
   let onEdit = () => navigate(`/post/${post.id}/edit`);
   return (
-    <div className="border border-sky-200  p-4">
+    <div className="border mb-5 sm:mb-0 border-sky-200 p-4 relative hover:shadow-md rounded transition-shadow bg-white">
       <div className="relative">
         <PostInfoBox updatedAt={post.updatedAt} userId={post.userId} />
         {post.userId === userId && (
@@ -24,12 +24,9 @@ export default function PostsCart({ post, userId }) {
           />
         )}
       </div>
-      <div className="font-bold text-xl mb-2">
-        <Link to={"/post/" + post.id}>{post.title}</Link>
-      </div>
-      <p>
-        <Link to={"/post/" + post.id}>{sliceText(post.body, 100)}</Link>
-      </p>
+      <div className="font-bold text-xl mb-2">{post.title}</div>
+      <p>{sliceText(post.body, 100)}</p>
+      <Link to={"/post/" + post.id} className="absolute inset-0"></Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Btn from "../components/Btn/Btn";
 import Loader from "../components/Loader/Loader";
 import PostsCart from "../components/PostsCart";
@@ -17,8 +18,9 @@ export default function Home(props) {
   );
 
   return (
-    <main className="wrapper pb-24">
-      <div className="grid auto-rows-max grid-cols-2 gap-6 pt-5 mb-6">
+    <main className="wrapper pb-24 pt-6">
+      <div className="flex "></div>
+      <div className="sm:grid auto-rows-max grid-cols-2 gap-6  mb-6">
         {posts.map((post) => (
           <PostsCart key={post.id} post={post} userId={user.id} />
         ))}

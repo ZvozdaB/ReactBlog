@@ -33,10 +33,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/addPost" element={<AddPost />} />
+        <Route path="/addAnno" element={<AddAnno />} />
         <Route path="/post/:postId" element={<Post />} />
         <Route path="/post/:postId/edit" element={<EditPost />} />
         <Route path="/announcements" element={<Announcements />} />
-        <Route path="/announcements/addAnno" element={<AddAnno />} />
         <Route path="/announcements/:annoId/edit" element={<EditAnno />} />
       </Routes>
     </>

@@ -25,9 +25,9 @@ export default function RegisterForm(props) {
     <CenterPopUp onClick={props.singUpHandler}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" w-80 py-6 px-8 bg-white  rounded-lg"
+        className=" w-80 py-6 px-8 bg-slate-50 rounded-lg "
       >
-        <p className="text-lg font-bold text-center mb-4">Register</p>
+        <p className="text-lg font-bold text-center mb-4 ">Register</p>
         {error && <p className="text-red-400">{error}</p>}
         <Input
           label="First Name"
@@ -99,12 +99,11 @@ export default function RegisterForm(props) {
         <AvatarSelector setAvatarId={setAvatarId} avatarId={avatarId} />
         <Btn className="w-full">Submit</Btn>
         <p className="p-1">
-          Don't have an account?
+          Don't have an account?{" "}
           <span
-            className="text-blue-500 cursor-pointer"
+            className="text-blue-500 cursor-pointer hover:underline"
             onClick={props.singLogChange}
           >
-            {" "}
             Log In
           </span>
         </p>

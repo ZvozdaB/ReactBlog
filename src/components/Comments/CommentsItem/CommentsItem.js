@@ -18,12 +18,12 @@ export default function CommentsItem({
   return (
     <>
       <li className="mb-3 flex group">
-        <AvatarIcon num={user?.avatar} />
+        <AvatarIcon avatarId={user?.avatar} />
         {editCommentNumber === comment.id ? (
           <EditComment comment={comment} onCancel={onCancel} />
         ) : (
           <div className="grow relative">
-            <p>
+            <p className="font-medium ">
               {user?.firstname} {user?.lastname}
             </p>
             <p>{comment.body}</p>

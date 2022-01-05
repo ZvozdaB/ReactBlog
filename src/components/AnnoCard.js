@@ -13,7 +13,7 @@ export default function AnnoCard({ anno, userId }) {
   };
   let onEdit = () => navigate(`/announcements/${anno.id}/edit`);
   return (
-    <div className="border border-sky-200  p-4">
+    <div className=" border-sky-600 border-b bg-white rounded-md p-4">
       <div className="relative">
         <PostInfoBox updatedAt={anno.updatedAt} userId={anno.userId} />
         {anno.userId === userId && (

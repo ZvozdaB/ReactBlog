@@ -15,24 +15,18 @@ export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
   };
   return (
     <>
-      <div
-        className={
-          "absolute right-2 top-3 flex flex-col items-end " +
-          (subMenuOpen && "z-20")
-        }
-      >
-        <div className=" cursor-pointer p-1 " onClick={subMenuHandler}>
+      <div className={"absolute right-2 top-3 flex flex-col items-end z-20 "}>
+        <div className="group cursor-pointer p-1 " onClick={subMenuHandler}>
           <div className="w-1 h-1 rounded-full bg-gray-700 "></div>
           <div className="w-1 h-1 rounded-full bg-gray-700 my-1"></div>
           <div className="w-1 h-1 rounded-full bg-gray-700 "></div>
         </div>
         {subMenuOpen && (
-          <div className="py-3 px-5 border flex flex-col items-start bg-white">
-            <div className="flex items-center" onClick={onEdit}>
+          <div className="py-3 px-5 border rounded-md shadow flex flex-col items-start bg-white ">
+            <div className="flex items-center mb-1" onClick={onEdit}>
               <img src={editIcon} className=" h-4 pr-2" alt="edit icon" />
               <button className="hover:underline">Edit</button>
             </div>
-
             <div
               className="flex items-center"
               onClick={() => {
