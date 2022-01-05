@@ -7,12 +7,13 @@ import { getPostPages } from "./services/store/actions/posts";
 import { isUserLogIn } from "./services/store/actions/auth";
 import AddPost from "./page/AddPost";
 import Announcements from "./page/Announcements";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import EditPost from "./page/EditPost";
 import { getUsers } from "./services/store/actions/users";
 import { getAnnoPages } from "./services/store/actions/announcements";
 import EditAnno from "./page/EditAnno";
 import AddAnno from "./page/AddAnno";
+import UserProfile from "./page/UserProfile";
 
 function App() {
   let dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/post/:postId/edit" element={<EditPost />} />
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/announcements/:annoId/edit" element={<EditAnno />} />
+        <Route path="/user" element={<UserProfile />} />
       </Routes>
     </>
   );
