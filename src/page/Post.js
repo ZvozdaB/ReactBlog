@@ -11,11 +11,10 @@ import { findPostByID, getPostById } from "../services/store/actions/posts";
 export default function Post() {
   let dispatch = useDispatch();
   let { postId } = useParams();
-  let { posts, post, lastPost, loading, loadingComments, user, isUserLogin } =
+  let { posts, post, loading, loadingComments, user, isUserLogin } =
     useSelector((state) => ({
       posts: state.posts.posts,
       post: state.posts.post,
-      lastPost: state.posts.lastPost,
       loading: state.posts.loading,
       loadingComments: state.comments.loading,
       user: state.auth.user,
@@ -29,7 +28,7 @@ export default function Post() {
   }, [postId]);
 
   return (
-    <main>
+    <main className="pb-12">
       <div className="wrapper py-4 ">
         {loading ? <Loader /> : <PostDetails post={post} userId={user.id} />}
         <p className="text-lg mt-5">Comments</p>

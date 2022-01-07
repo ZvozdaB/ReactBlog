@@ -4,6 +4,8 @@ import classes from "./BurgerNav.module.css";
 const navLinks = [
   { id: 1, text: "Home", path: "/" },
   { id: 2, text: "Announcements", path: "/announcements" },
+  { id: 3, text: "Add post", path: "/addPost" },
+  { id: 4, text: "Add announcements", path: "/addAnno" },
 ];
 
 export default function BurgerNav() {
@@ -22,7 +24,7 @@ export default function BurgerNav() {
       </div>
       <div
         className={
-          `md:hidden fixed inset-0 flex justify-center flex-col bg-blue-400 z-20 transition duration-300 ` +
+          `md:hidden fixed inset-0 flex justify-center flex-col bg-blue-400 z-30 transition duration-300 ` +
           drawerClasses
         }
       >

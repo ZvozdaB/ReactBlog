@@ -22,7 +22,7 @@ export default function PostForm({
   );
   return (
     <form className="py-6" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="title" className="pb-1">
+      <label htmlFor="title" className=" block mb-1 font-medium">
         {label.title}
       </label>
       <TextArea
@@ -33,7 +33,7 @@ export default function PostForm({
         error={errors.title}
         placeholder={placeholder.title}
       />
-      <label htmlFor="body" className="pb-1">
+      <label htmlFor="body" className=" block mb-1 font-medium">
         {label.body}
       </label>
       <TextArea

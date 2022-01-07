@@ -23,14 +23,19 @@ export async function fetchCreatePostComment({ body, postId }) {
     let data = await resp.json();
     return data;
   }
-  throw new Error(resp.status);
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  }
 }
 
 export async function fetchDeletePostComments(commentId) {
   let option = getOption("DELETE");
   let resp = await fetch(URL + `/664/comments/${commentId}`, option);
-  let date = await resp.json();
-  return date;
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  } else if (resp.status !== 200) {
+    window.alert("Something went wrong");
+  }
 }
 
 export async function fetchUpdatePostComment(commentText, commentId) {
@@ -40,7 +45,9 @@ export async function fetchUpdatePostComment(commentText, commentId) {
     updatedAt: date,
   });
   let resp = await fetch(URL + `/664/comments/${commentId}`, option);
-  if (resp.status !== 200) {
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
 }

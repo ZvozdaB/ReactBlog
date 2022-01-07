@@ -13,7 +13,7 @@ export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
   };
   return (
     <>
-      <div className={"absolute right-2 top-3 flex flex-col items-end z-20 "}>
+      <div className={"absolute right-0 top-1 flex flex-col items-end z-20 "}>
         <div
           className="group cursor-pointer p-1 "
           onClick={subMenuOpen.handler}

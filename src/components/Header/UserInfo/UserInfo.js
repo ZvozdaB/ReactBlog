@@ -7,7 +7,7 @@ export default function UserInfo({ user }) {
       <Link to="/user" className="group ml-auto flex items-center">
         <AvatarIcon
           avatarId={user.avatar}
-          className="border border-transparent rounded-full group-hover:border-sky-900 transition"
+          className="border border-transparent rounded-full group-hover:border-sky-900 transition mr-2"
         />
         <span className=" group-hover:text-sky-900 transition">
           {user.firstname} {user.lastname}

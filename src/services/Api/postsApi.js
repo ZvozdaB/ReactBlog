@@ -31,15 +31,17 @@ export async function fetchCreatePost({ body, title }) {
   if (resp.status === 201) {
     let data = await resp.json();
     return data;
+  } else if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
   }
-  throw new Error(resp.status);
 }
 
 export async function fetchDeletePost(postId) {
   let option = getOption("DELETE");
   let resp = await fetch(URL + `/664/posts/${postId}`, option);
-  let date = await resp.json();
-  return date;
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  }
 }
 
 export async function fetchUpdatePost({ title, body, postId }) {
@@ -47,7 +49,9 @@ export async function fetchUpdatePost({ title, body, postId }) {
   let option = getOption("PATCH", { body, title, updatedAt: date });
 
   let resp = await fetch(URL + `/664/posts/${postId}`, option);
-  if (resp.status !== 200) {
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
 }

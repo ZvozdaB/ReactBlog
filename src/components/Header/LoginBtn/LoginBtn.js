@@ -16,8 +16,8 @@ export default function LoginBtn() {
   };
   return (
     <>
-      <Btn header onClick={logInOpen.handler}>
-        LogIn
+      <Btn header onClick={logInOpen.handler} className>
+        Login
       </Btn>
       {logInOpen.value && (
         <LogInForm

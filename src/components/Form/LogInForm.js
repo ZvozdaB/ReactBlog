@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { LogIn } from "../../services/store/actions/auth";
@@ -15,8 +16,12 @@ export default function LogInForm(props) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-  let onSubmit = (data) => dispatch(LogIn(data.email, data.password));
+  let onSubmit = (data) => {
+    dispatch(LogIn(data.email, data.password));
+    reset({ password: "" });
+  };
 
   return (
     <CenterPopUp onClick={props.logInHandler}>

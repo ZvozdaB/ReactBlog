@@ -7,6 +7,9 @@ export function useUserById(userId) {
     users: state.users.users,
     usersLoading: state.users.usersLoading,
   }));
+  if (typeof userId !== "number") {
+    return {};
+  }
   let user = users.find((user) => user.id === userId);
   if (!user && !usersLoading) {
     dispatch(getUserById(userId));

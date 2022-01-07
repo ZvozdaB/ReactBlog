@@ -30,6 +30,8 @@ export async function fetchCreateAnnouncements({ body, title }) {
   if (resp.status === 201) {
     let data = await resp.json();
     return data;
+  } else if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
   } else {
     window.alert("Something went wrong");
   }
@@ -38,11 +40,11 @@ export async function fetchCreateAnnouncements({ body, title }) {
 export async function fetchDeleteAnnouncements(annoId) {
   let option = getOption("DELETE");
   let resp = await fetch(URL + `/664/announcements/${annoId}`, option);
-  if (resp.status !== 200) {
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
-  let date = await resp.json();
-  return date;
 }
 
 export async function fetchUpdateAnnouncements({ title, body, annoId }) {
@@ -50,7 +52,9 @@ export async function fetchUpdateAnnouncements({ title, body, annoId }) {
   let option = getOption("PATCH", { body, title, updatedAt: date });
 
   let resp = await fetch(URL + `/664/announcements/${annoId}`, option);
-  if (resp.status !== 200) {
+  if (resp.status === 401) {
+    window.alert("Access token timeout, pleas re-login");
+  } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
 }

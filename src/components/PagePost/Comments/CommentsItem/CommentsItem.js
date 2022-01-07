@@ -22,7 +22,7 @@ export default function CommentsItem({
         {editCommentNumber === comment.id ? (
           <EditComment comment={comment} onCancel={onCancel} />
         ) : (
-          <div className="grow relative">
+          <div className="grow relative pr-4">
             <p className="font-medium ">
               {user?.firstname} {user?.lastname}
             </p>

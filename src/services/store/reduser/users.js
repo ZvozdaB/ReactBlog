@@ -17,7 +17,6 @@ export function usersReducer(state = initialState, action) {
         users: action.users,
       };
     case USER_GET_USER_BY_ID_SUCCESS:
-      console.log(action.user);
       return {
         ...state,
         users: [...state.users, action.user],
