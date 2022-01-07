@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { LogIn } from "../../services/store/actions/auth";
+import Btn from "../CommonUsed/Btn/Btn";
+import CenterPopUp from "../CommonUsed/CenterPopUp/CenterPopUp";
 
-import Btn from "../Btn/Btn";
-import CenterPopUp from "../CenterPopUp/CenterPopUp";
 import Input from "./FormComponents/Input";
 
 export default function LogInForm(props) {
@@ -22,7 +22,7 @@ export default function LogInForm(props) {
     <CenterPopUp onClick={props.logInHandler}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" w-80 py-6 px-8 bg-slate-50  rounded-lg "
+        className=" w-80 py-6 px-8 bg-slate-50  rounded-lg text-black "
         noValidate
       >
         <p className="text-lg font-bold text-center mb-4">Login</p>

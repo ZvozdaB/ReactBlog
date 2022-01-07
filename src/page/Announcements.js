@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import AnnoCard from "../components/AnnoCard";
-import Btn from "../components/Btn/Btn";
+import AnnoCard from "../components/PageAnno/AnnoCard";
+import Btn from "../components/CommonUsed/Btn/Btn";
 import Loader from "../components/Loader/Loader";
 import { getNextAnnoPage } from "../services/store/actions/announcements";
 

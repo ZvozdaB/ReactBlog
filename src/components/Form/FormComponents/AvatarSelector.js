@@ -1,4 +1,4 @@
-import AvatarIcon from "../../AvatarIcon/AvatarIcon";
+import AvatarIcon from "../../CommonUsed/AvatarIcon/AvatarIcon";
 
 export function AvatarSelector({ setAvatarId, avatarId }) {
   let arr = new Array(6).fill(1).map((item, index) => (item = index + 1));

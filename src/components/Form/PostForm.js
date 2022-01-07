@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Btn from "../Btn/Btn";
+import Btn from "../CommonUsed/Btn/Btn";
 import TextArea from "./FormComponents/TextArea";
 
 export default function PostForm({

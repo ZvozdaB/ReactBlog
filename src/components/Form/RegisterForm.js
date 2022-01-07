@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { UserRegister } from "../../services/store/actions/auth";
-import Btn from "../Btn/Btn";
-import CenterPopUp from "../CenterPopUp/CenterPopUp";
+import Btn from "../CommonUsed/Btn/Btn";
+import CenterPopUp from "../CommonUsed/CenterPopUp/CenterPopUp";
 import { AvatarSelector } from "./FormComponents/AvatarSelector";
 import Input from "./FormComponents/Input";
 
@@ -25,7 +25,7 @@ export default function RegisterForm(props) {
     <CenterPopUp onClick={props.singUpHandler}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" w-80 py-6 px-8 bg-slate-50 rounded-lg "
+        className=" w-80 py-6 px-8 bg-slate-50 rounded-lg text-black"
       >
         <p className="text-lg font-bold text-center mb-4 ">Register</p>
         {error && <p className="text-red-400">{error}</p>}

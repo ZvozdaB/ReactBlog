@@ -26,3 +26,16 @@ export function getLastPage(Link) {
   let last = parseInt(link.slice(index + 6));
   return last;
 }
+
+export function validationPosts(postsArr) {
+  let posts = postsArr.filter(
+    (post) =>
+      typeof post === "object" &&
+      post.id &&
+      post.title &&
+      post.body &&
+      post.createdAt &&
+      post.updatedAt
+  );
+  return posts;
+}

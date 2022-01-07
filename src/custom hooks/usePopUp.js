@@ -8,9 +8,11 @@ export function usePopUp(func) {
     func && func();
   };
   let reset = () => setPopUp(false);
+  let on = () => setPopUp(true);
   return {
     value: popUp,
     handler,
     reset,
+    on,
   };
 }

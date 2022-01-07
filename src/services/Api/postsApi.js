@@ -1,5 +1,5 @@
 import { URL } from "./URL";
-import { getOption, getLastPage } from "./services";
+import { getOption, getLastPage, validationPosts } from "./services";
 
 export async function fetchPostPages(page, limit = 10) {
   let resp = await fetch(
@@ -8,6 +8,7 @@ export async function fetchPostPages(page, limit = 10) {
   let lastPage = getLastPage(resp.headers.get("Link"));
   let lastPost = resp.headers.get("X-Total-Count");
   let data = await resp.json();
+  data = validationPosts(data); // TODO: post validation from server
   return { data, lastPage, lastPost };
 }
 

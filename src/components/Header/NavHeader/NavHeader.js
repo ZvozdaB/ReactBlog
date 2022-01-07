@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import AddBox from "./AddBox/AddBox";
+import AddBox from "../AddBox/AddBox";
 
 const navLink = [
   { id: 1, text: "Home", path: "/" },
@@ -8,7 +8,7 @@ const navLink = [
 
 export default function NavHeader() {
   return (
-    <nav className="flex items-center">
+    <nav className="hidden md:flex items-center">
       {navLink.map((nav) => (
         <NavLink
           key={nav.id}

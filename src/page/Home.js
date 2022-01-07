@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Btn from "../components/Btn/Btn";
+import Btn from "../components//CommonUsed/Btn/Btn";
 import Loader from "../components/Loader/Loader";
-import PostsCart from "../components/PostsCart";
+import PostsCart from "../components/PageHome/PostsCart";
 import { getNextPage } from "../services/store/actions/posts";
 
 export default function Home(props) {
@@ -16,7 +15,6 @@ export default function Home(props) {
       user: state.auth.user,
     })
   );
-
   return (
     <main className="wrapper pb-24 pt-6">
       <div className="flex "></div>

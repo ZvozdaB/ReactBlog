@@ -5,14 +5,14 @@ import Post from "./page/Post";
 import Home from "./page/Home";
 import { getPostPages } from "./services/store/actions/posts";
 import { isUserLogIn } from "./services/store/actions/auth";
-import AddPost from "./page/AddPost";
+import AddPost from "./page/AddPages/AddPost";
 import Announcements from "./page/Announcements";
 import Header from "./components/Header/Header";
-import EditPost from "./page/EditPost";
+import EditPost from "./page/EditPages/EditPost";
 import { getUsers } from "./services/store/actions/users";
 import { getAnnoPages } from "./services/store/actions/announcements";
-import EditAnno from "./page/EditAnno";
-import AddAnno from "./page/AddAnno";
+import EditAnno from "./page/EditPages/EditAnno";
+import AddAnno from "./page/AddPages/AddAnno";
 import UserProfile from "./page/UserProfile";
 
 function App() {
