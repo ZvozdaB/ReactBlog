@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import SubMenu from "../../../CommonUsed/SubMenu/SubMenu";
-import { useUserById } from "../../../../custom hooks/useUserById";
 import { DeletePostComment } from "../../../../services/store/actions/comments";
 import AvatarIcon from "../../../CommonUsed/AvatarIcon/AvatarIcon";
 import EditComment from "../EditComment/EditComment";
@@ -14,7 +13,7 @@ export default function CommentsItem({
   let dispatch = useDispatch();
   let onCancel = () => editCommentHandler(null);
   let onDelete = () => dispatch(DeletePostComment(comment.id, comment.postId));
-  let user = useUserById(comment.userId);
+  let user = comment.user;
   return (
     <>
       <li className="mb-3 flex group ">

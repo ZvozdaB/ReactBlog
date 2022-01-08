@@ -11,8 +11,8 @@ export default function AddPost() {
   }));
 
   let onSubmit = (data) => {
-    navigate("/");
     dispatch(CreatePost(data));
+    navigate("/");
   };
   return (
     <div className="wrapper py-4">

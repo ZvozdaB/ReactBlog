@@ -9,7 +9,6 @@ import AddPost from "./page/AddPages/AddPost";
 import Announcements from "./page/Announcements";
 import Header from "./components/Header/Header";
 import EditPost from "./page/EditPages/EditPost";
-import { getUsers } from "./services/store/actions/users";
 import { getAnnoPages } from "./services/store/actions/announcements";
 import EditAnno from "./page/EditPages/EditAnno";
 import AddAnno from "./page/AddPages/AddAnno";
@@ -23,7 +22,6 @@ function App() {
   }));
   useEffect(() => {
     dispatch(isUserLogIn());
-    dispatch(getUsers());
   }, []);
   useEffect(() => dispatch(getPostPages(currentPage)), [currentPage]);
   useEffect(() => dispatch(getAnnoPages(currentAnnoPage)), [currentAnnoPage]);

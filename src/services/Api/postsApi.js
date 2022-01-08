@@ -3,7 +3,8 @@ import { getOption, getLastPage, validationPosts } from "./services";
 
 export async function fetchPostPages(page, limit = 10) {
   let resp = await fetch(
-    URL + `/posts?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc`
+    URL +
+      `/posts?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc&_expand=user`
   );
   let lastPage = getLastPage(resp.headers.get("Link"));
   let lastPost = resp.headers.get("X-Total-Count");
@@ -13,7 +14,7 @@ export async function fetchPostPages(page, limit = 10) {
 }
 
 export async function fetchPostById(postId) {
-  let resp = await fetch(URL + `/posts/${postId}`);
+  let resp = await fetch(URL + `/posts/${postId}?_expand=user`);
   let date = await resp.json();
   return date;
 }

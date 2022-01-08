@@ -4,7 +4,7 @@ import { getOption, getLastPage } from "./services";
 export async function fetchAnnouncements(page, limit = 10) {
   let resp = await fetch(
     URL +
-      `/announcements?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc`
+      `/announcements?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc&_expand=user`
   );
   let lastAnnoPage = getLastPage(resp.headers.get("Link"));
   let lastAnno = resp.headers.get("X-Total-Count");
@@ -12,7 +12,7 @@ export async function fetchAnnouncements(page, limit = 10) {
   return { data, lastAnnoPage, lastAnno };
 }
 export async function fetchAnnouncementsById(annoId) {
-  let resp = await fetch(URL + `/announcements/${annoId}`);
+  let resp = await fetch(URL + `/announcements/${annoId}?_expand=user`);
   let date = await resp.json();
   return date;
 }

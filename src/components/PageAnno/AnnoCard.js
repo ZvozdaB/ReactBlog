@@ -15,7 +15,7 @@ export default function AnnoCard({ anno, userId }) {
   return (
     <div className="  bg-white rounded-md p-4 shadow-lg">
       <div className="relative">
-        <PostInfoBox updatedAt={anno.updatedAt} userId={anno.userId} />
+        <PostInfoBox updatedAt={anno.updatedAt} user={anno.user} />
         {anno.userId === userId && (
           <SubMenu
             onDelete={onDelete}

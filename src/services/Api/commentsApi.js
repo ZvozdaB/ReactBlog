@@ -3,7 +3,7 @@ import { getOption } from "./services";
 
 export async function fetchPostComments(postId) {
   let resp = await fetch(
-    URL + `/comments?postId=${postId}&_sort=updatedAt&_order=desc`
+    URL + `/comments?postId=${postId}&_sort=updatedAt&_order=desc&_expand=user`
   );
   let date = await resp.json();
   return date;
@@ -22,8 +22,7 @@ export async function fetchCreatePostComment({ body, postId }) {
   if (resp.status === 201) {
     let data = await resp.json();
     return data;
-  }
-  if (resp.status === 401) {
+  } else if (resp.status === 401) {
     window.alert("Access token timeout, pleas re-login");
   }
 }

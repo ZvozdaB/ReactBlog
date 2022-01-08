@@ -16,7 +16,7 @@ export default function PostsCart({ post, userId }) {
   return (
     <div className="border-2 border-white mb-5 sm:mb-0 hover:border-sky-200 p-4 relative shadow-md rounded transition-shadow bg-white">
       <div className="relative">
-        <PostInfoBox updatedAt={post.updatedAt} userId={post.userId} />
+        <PostInfoBox updatedAt={post.updatedAt} user={post.user} />
         {post.userId === userId && (
           <SubMenu
             onDelete={onDelete}

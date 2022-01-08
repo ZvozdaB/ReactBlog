@@ -15,7 +15,7 @@ export default function PostDetails({ post, userId }) {
   return (
     <div className="bg-white shadow-md px-4 py-2 rounded">
       <div className="relative">
-        <PostInfoBox updatedAt={post.updatedAt} userId={post.userId} />
+        <PostInfoBox updatedAt={post.updatedAt} user={post.user} />
         {post.userId === userId && (
           <SubMenu
             onDelete={onDelete}

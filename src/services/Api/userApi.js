@@ -33,14 +33,3 @@ export async function fetchRegister(userData) {
   }
   throw new Error(resp.status);
 }
-
-export async function fetchUsers() {
-  let resp = await fetch(URL + `/users`);
-  let date = await resp.json();
-  return date;
-}
-export async function fetchUserById(userId) {
-  let resp = await fetch(URL + `/users/` + userId);
-  let date = await resp.json();
-  return date;
-}

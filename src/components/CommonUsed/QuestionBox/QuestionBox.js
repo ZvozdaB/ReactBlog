@@ -5,7 +5,7 @@ export default function QuestionBox({ YesText, YesClick, NoClick, question }) {
   return (
     <CenterPopUp onClick={NoClick}>
       <div className=" bg-white rounded-lg max-w-md p-4 text-black">
-        <p className="py-4 px-1 text-center font-semibold max-w-xs">
+        <p className="py-4 px-1 text-center font-semibold max-w-[210px]">
           {question}
         </p>
         <div className="flex justify-between ">
