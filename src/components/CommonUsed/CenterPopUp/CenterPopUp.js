@@ -1,10 +1,13 @@
 import { useEffect } from "react";
-import { setBlockScreen } from "../../../custom hooks/setBlockScreen";
+import {
+  setBlockScrollOff,
+  setBlockScrollOn,
+} from "../../../custom hooks/setBlockScreen";
 
 export default function CenterPopUp({ onClick, children }) {
   useEffect(() => {
-    setBlockScreen();
-    return () => setBlockScreen();
+    setBlockScrollOn();
+    return () => setBlockScrollOff();
   }, []);
   return (
     <>

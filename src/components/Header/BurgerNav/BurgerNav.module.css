@@ -1,8 +1,8 @@
 .burger {
   position: absolute;
-  width: 1.5rem;
-  height: 1.25rem;
-  left: 1.5rem;
+  width: 2rem;
+  height: 1.5rem;
+  left: 1rem;
   z-index: 50;
 }
 .burger span,
@@ -10,7 +10,7 @@
 .burger::after {
   content: "";
   position: absolute;
-  width: 25px;
+  width: 30px;
   height: 2px;
   background-color: #fff;
   transition: 0.5s;

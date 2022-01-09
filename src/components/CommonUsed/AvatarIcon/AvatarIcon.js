@@ -22,7 +22,7 @@ export default function AvatarIcon({ avatarId = 0, className }) {
   return (
     <img
       src={avatarArr[avatarId]}
-      className={"h-10 mr-4 " + className}
+      className={"h-10 mr-2 md:mr-4 " + className}
       alt="user avatar"
     />
   );

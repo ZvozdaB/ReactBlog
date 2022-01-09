@@ -1,4 +1,8 @@
 import { NavLink } from "react-router-dom";
+import {
+  setBlockScrollOff,
+  setBlockScrollOn,
+} from "../../../custom hooks/setBlockScreen";
 import { usePopUp } from "../../../custom hooks/usePopUp";
 import classes from "./BurgerNav.module.css";
 const navLinks = [
@@ -17,6 +21,8 @@ export default function BurgerNav() {
   let drawerClasses = menuOpen.value
     ? "transform translate-x-0"
     : "transform translate-x-full";
+
+  menuOpen.value ? setBlockScrollOn() : setBlockScrollOff();
   return (
     <>
       <div className={burgerClasses} onClick={menuOpen.handler}>
