@@ -16,7 +16,9 @@ export default function CenterPopUp({ onClick, children }) {
         onClick={onClick}
       ></div>
       <div className="fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-screen overflow-y-auto">
-        <div className="animate-appear">{children}</div>
+        <div className="animate-appear max-h-screen overflow-y-auto pt-6 pb-10">
+          {children}
+        </div>
       </div>
     </>
   );
