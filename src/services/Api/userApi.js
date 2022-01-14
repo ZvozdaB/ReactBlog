@@ -1,4 +1,4 @@
-import { URL } from "./URL";
+const URL = process.env.REACT_APP_SERVER_URL;
 
 export const fetchLogIN = async (email, password) => {
   const option = {

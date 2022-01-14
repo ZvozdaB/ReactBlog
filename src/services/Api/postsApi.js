@@ -1,5 +1,6 @@
-import { URL } from "./URL";
 import { getOption, getLastPage, validationPosts } from "./services";
+
+const URL = process.env.REACT_APP_SERVER_URL;
 
 export const fetchPostPages = async (page, limit = 10) => {
   let resp = await fetch(
@@ -9,7 +10,7 @@ export const fetchPostPages = async (page, limit = 10) => {
   const lastPage = getLastPage(resp.headers.get("Link"));
   const lastPost = resp.headers.get("X-Total-Count");
   let data = await resp.json();
-  data = validationPosts(data); 
+  data = validationPosts(data);
   return { data, lastPage, lastPost };
 };
 

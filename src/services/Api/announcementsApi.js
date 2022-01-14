@@ -1,5 +1,6 @@
-import { URL } from "./URL";
 import { getOption, getLastPage } from "./services";
+
+const URL = process.env.REACT_APP_SERVER_URL;
 
 export const fetchAnnouncements = async (page, limit = 10) => {
   let resp = await fetch(

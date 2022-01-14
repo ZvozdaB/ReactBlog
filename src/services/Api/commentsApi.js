@@ -1,5 +1,6 @@
-import { URL } from "./URL";
 import { getOption } from "./services";
+
+const URL = process.env.REACT_APP_SERVER_URL;
 
 export const fetchPostComments = async (postId) => {
   let resp = await fetch(
