@@ -9,21 +9,21 @@ import {
 } from "../../services/store/actions/posts";
 
 const EditPost = () => {
-  let { postId } = useParams();
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let { posts, post, user } = useSelector((state) => ({
+  const { postId } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { posts, post, user } = useSelector((state) => ({
     posts: state.posts.posts,
     post: state.posts.post,
     user: state.auth.user,
   }));
 
-  let onSubmit = (data) => {
+  const onSubmit = (data) => {
     navigate("/");
     dispatch(UpdatePost({ ...data, postId }));
   };
   useEffect(() => {
-    let post = posts.find((post) => post.id === +postId);
+    const post = posts.find((post) => post.id === +postId);
     post ? dispatch(findPostByID(post)) : dispatch(getPostById(postId));
   }, [postId]);
 

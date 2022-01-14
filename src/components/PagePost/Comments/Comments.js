@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { CommentsItem } from "./CommentsItem/CommentsItem";
 
 const Comments = () => {
-  let { comments, userId } = useSelector((state) => ({
+  const { comments, userId } = useSelector((state) => ({
     comments: state.comments.comments,
     userId: state.auth.user.id,
   }));
-  let [editCommentNumber, setEditComment] = useState(null);
-  let editCommentHandler = (commentId) => setEditComment(commentId);
+  const [editCommentNumber, setEditComment] = useState(null);
+  const editCommentHandler = (commentId) => setEditComment(commentId);
   return (
     <ul>
       {comments.length !== 0 ? (

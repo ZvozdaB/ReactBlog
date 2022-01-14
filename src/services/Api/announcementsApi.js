@@ -6,8 +6,8 @@ export const fetchAnnouncements = async (page, limit = 10) => {
     URL +
       `/announcements?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc&_expand=user`
   );
-  let lastAnnoPage = getLastPage(resp.headers.get("Link"));
-  let lastAnno = resp.headers.get("X-Total-Count");
+  const lastAnnoPage = getLastPage(resp.headers.get("Link"));
+  const lastAnno = resp.headers.get("X-Total-Count");
   let data = await resp.json();
   return { data, lastAnnoPage, lastAnno };
 };
@@ -18,8 +18,8 @@ export const fetchAnnouncementsById = async (annoId) => {
 };
 
 export const fetchCreateAnnouncements = async ({ body, title }) => {
-  let date = new Date().toISOString();
-  let option = getOption("POST", {
+  const date = new Date().toISOString();
+  const option = getOption("POST", {
     body,
     title,
     createdAt: date,
@@ -38,7 +38,7 @@ export const fetchCreateAnnouncements = async ({ body, title }) => {
 };
 
 export const fetchDeleteAnnouncements = async (annoId) => {
-  let option = getOption("DELETE");
+  const option = getOption("DELETE");
   let resp = await fetch(URL + `/664/announcements/${annoId}`, option);
   if (resp.status === 401) {
     window.alert("Access token timeout, pleas re-login");
@@ -48,8 +48,8 @@ export const fetchDeleteAnnouncements = async (annoId) => {
 };
 
 export const fetchUpdateAnnouncements = async ({ title, body, annoId }) => {
-  let date = new Date().toISOString();
-  let option = getOption("PATCH", { body, title, updatedAt: date });
+  const date = new Date().toISOString();
+  const option = getOption("PATCH", { body, title, updatedAt: date });
 
   let resp = await fetch(URL + `/664/announcements/${annoId}`, option);
   if (resp.status === 401) {

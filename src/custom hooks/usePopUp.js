@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 const usePopUp = (func) => {
-  let [popUp, setPopUp] = useState(false);
+  const [popUp, setPopUp] = useState(false);
 
-  let handler = () => {
+  const handler = () => {
     setPopUp(!popUp);
     func && func();
   };
-  let reset = () => setPopUp(false);
-  let on = () => setPopUp(true);
+  const reset = () => setPopUp(false);
+  const on = () => setPopUp(true);
   return {
     value: popUp,
     handler,

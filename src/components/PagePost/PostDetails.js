@@ -5,13 +5,13 @@ import { PostInfoBox } from "../CommonUsed/PostInfoBox/PostInfoBox";
 import { SubMenu } from "../CommonUsed/SubMenu/SubMenu";
 
 const PostDetails = ({ post, userId }) => {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let onDelete = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const onDelete = () => {
     navigate("/");
     dispatch(DeletePost(post.id));
   };
-  let onEdit = () => navigate(`/post/${post.id}/edit`);
+  const onEdit = () => navigate(`/post/${post.id}/edit`);
   return (
     <div className="bg-white shadow-md px-4 py-2 rounded">
       <div className="relative">

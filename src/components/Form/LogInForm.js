@@ -7,17 +7,17 @@ import { CenterPopUp } from "../CommonUsed/CenterPopUp/CenterPopUp";
 import { Input } from "./FormComponents/Input";
 
 const LogInForm = (props) => {
-  let dispatch = useDispatch();
-  let { error } = useSelector((state) => ({
+  const dispatch = useDispatch();
+  const { error } = useSelector((state) => ({
     error: state.auth.error,
   }));
-  let {
+  const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
-  let onSubmit = (data) => {
+  const onSubmit = (data) => {
     dispatch(LogIn(data.email, data.password));
     reset({ password: "" });
   };

@@ -5,8 +5,8 @@ import { Loader } from "../components/Loader/Loader";
 import { getNextAnnoPage } from "../services/store/actions/announcements";
 
 const Announcements = () => {
-  let dispatch = useDispatch();
-  let { annons, lastAnnoPage, loading, currentAnnoPage, user } = useSelector(
+  const dispatch = useDispatch();
+  const { annons, lastAnnoPage, loading, currentAnnoPage, user } = useSelector(
     (state) => ({
       annons: state.anno.annons,
       lastAnnoPage: state.anno.lastAnnoPage,

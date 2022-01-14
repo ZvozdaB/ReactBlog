@@ -26,9 +26,9 @@ export const UserRegister = (userData) => {
 
 export const isUserLogIn = () => {
   return async (dispatch) => {
-    let data = localStorage.getItem("user");
+    const data = localStorage.getItem("user");
     if (data) {
-      let user = await JSON.parse(data);
+      const user = await JSON.parse(data);
       dispatch(setUser(user.user));
     }
   };

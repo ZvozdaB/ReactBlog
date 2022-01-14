@@ -5,8 +5,8 @@ import { PostsCart } from "../components/PageHome/PostsCart";
 import { getNextPage } from "../services/store/actions/posts";
 
 const Home = (props) => {
-  let dispatch = useDispatch();
-  let { posts, lastPage, loading, currentPage, user } = useSelector(
+  const dispatch = useDispatch();
+  const { posts, lastPage, loading, currentPage, user } = useSelector(
     (state) => ({
       posts: state.posts.posts,
       lastPage: state.posts.lastPage,

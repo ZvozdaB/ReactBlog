@@ -15,6 +15,6 @@ const Btn = (props) => {
       {props.children}
     </button>
   );
-}
+};
 
 export { Btn };

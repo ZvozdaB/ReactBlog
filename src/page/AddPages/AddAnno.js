@@ -4,13 +4,13 @@ import { PostForm } from "../../components/Form/PostForm";
 import { CreateAnno } from "../../services/store/actions/announcements";
 
 const AddAnno = () => {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let { isUserLogin } = useSelector((state) => ({
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isUserLogin } = useSelector((state) => ({
     isUserLogin: state.auth.isUserLogin,
   }));
 
-  let onSubmit = (data) => {
+  const onSubmit = (data) => {
     navigate("/announcements");
     dispatch(CreateAnno(data));
   };

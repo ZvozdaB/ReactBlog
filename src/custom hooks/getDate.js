@@ -1,5 +1,5 @@
 const getDate = (updatedAt) => {
-  let monthsArr = [
+  const monthsArr = [
     "Jan.",
     "Feb.",
     "Mar.",
@@ -13,10 +13,10 @@ const getDate = (updatedAt) => {
     "Nov.",
     "Dec.",
   ];
-  let date = new Date(updatedAt);
-  let month = date.getMonth();
-  let year = date.getFullYear();
-  let day = date.getDate();
+  const date = new Date(updatedAt);
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const day = date.getDate();
   return `${monthsArr[month]}${day}.${year}`;
 };
 

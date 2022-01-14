@@ -6,10 +6,10 @@ export const fetchPostPages = async (page, limit = 10) => {
     URL +
       `/posts?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc&_expand=user`
   );
-  let lastPage = getLastPage(resp.headers.get("Link"));
-  let lastPost = resp.headers.get("X-Total-Count");
+  const lastPage = getLastPage(resp.headers.get("Link"));
+  const lastPost = resp.headers.get("X-Total-Count");
   let data = await resp.json();
-  data = validationPosts(data); // TODO: post validation from server
+  data = validationPosts(data); 
   return { data, lastPage, lastPost };
 };
 
@@ -20,8 +20,8 @@ export const fetchPostById = async (postId) => {
 };
 
 export const fetchCreatePost = async ({ body, title }) => {
-  let date = new Date().toISOString();
-  let option = getOption("POST", {
+  const date = new Date().toISOString();
+  const option = getOption("POST", {
     body,
     title,
     createdAt: date,
@@ -38,7 +38,7 @@ export const fetchCreatePost = async ({ body, title }) => {
 };
 
 export const fetchDeletePost = async (postId) => {
-  let option = getOption("DELETE");
+  const option = getOption("DELETE");
   let resp = await fetch(URL + `/664/posts/${postId}`, option);
   if (resp.status === 401) {
     window.alert("Access token timeout, pleas re-login");
@@ -46,8 +46,8 @@ export const fetchDeletePost = async (postId) => {
 };
 
 export const fetchUpdatePost = async ({ title, body, postId }) => {
-  let date = new Date().toISOString();
-  let option = getOption("PATCH", { body, title, updatedAt: date });
+  const date = new Date().toISOString();
+  const option = getOption("PATCH", { body, title, updatedAt: date });
 
   let resp = await fetch(URL + `/664/posts/${postId}`, option);
   if (resp.status === 401) {

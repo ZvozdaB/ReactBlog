@@ -14,12 +14,12 @@ const navLinks = [
 ];
 
 const BurgerNav = () => {
-  let menuOpen = usePopUp();
-  let burgerClasses = menuOpen.value
+  const menuOpen = usePopUp();
+  const burgerClasses = menuOpen.value
     ? `${classes.burger} ${classes.open}`
     : classes.burger;
 
-  let drawerClasses = menuOpen.value
+  const drawerClasses = menuOpen.value
     ? "transform translate-x-0"
     : "transform translate-x-full";
 
@@ -50,12 +50,6 @@ const BurgerNav = () => {
               {nav.text}
             </NavLink>
           ))}
-
-          {/* <div className="rounded bg-white text-xs text-darkBlue mx-6 py-3">
-            <Link href="/support">
-              <a>{t("nav.support")}</a>
-            </Link>
-          </div> */}
         </nav>
       </div>
     </>

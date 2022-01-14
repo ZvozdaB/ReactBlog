@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { AvatarIcon } from "../components/CommonUsed/AvatarIcon/AvatarIcon";
 
 const UserProfile = () => {
-  let { user } = useSelector((state) => ({ user: state.auth.user }));
+  const { user } = useSelector((state) => ({ user: state.auth.user }));
   return (
     <main className="wrapper pt-6">
       <div className="p-4 bg-white rounded-md shadow-md font-medium flex">

@@ -4,7 +4,7 @@ import { LogOutBtn } from "../LogOutBtn/LogOutBtn";
 import { UserInfo } from "../UserInfo/UserInfo";
 
 const AuthBox = () => {
-  let { user, isUserLogin } = useSelector((state) => ({
+  const { user, isUserLogin } = useSelector((state) => ({
     user: state.auth.user,
     isUserLogin: state.auth.isUserLogin,
   }));

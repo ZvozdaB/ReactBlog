@@ -4,10 +4,10 @@ import { QuestionBox } from "../QuestionBox/QuestionBox";
 import { usePopUp } from "../../../custom hooks/usePopUp";
 // TODO icon import ?
 const SubMenu = ({ onEdit, onDelete, deleteQuestion }) => {
-  let subMenuOpen = usePopUp();
-  let deleteBoxOpen = usePopUp();
+  const subMenuOpen = usePopUp();
+  const deleteBoxOpen = usePopUp();
 
-  let deleteClick = () => {
+  const deleteClick = () => {
     onDelete();
     deleteBoxOpen.handler();
   };

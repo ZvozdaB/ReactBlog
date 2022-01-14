@@ -1,7 +1,7 @@
 import { URL } from "./URL";
 
 export const fetchLogIN = async (email, password) => {
-  let option = {
+  const option = {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -18,7 +18,7 @@ export const fetchLogIN = async (email, password) => {
 };
 
 export const fetchRegister = async (userData) => {
-  let option = {
+  const option = {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",

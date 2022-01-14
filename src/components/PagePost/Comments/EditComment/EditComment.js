@@ -6,15 +6,15 @@ import { Btn } from "../../../CommonUsed/Btn/Btn";
 import { TextArea } from "../../../Form/FormComponents/TextArea";
 
 const EditComment = ({ comment, onCancel }) => {
-  let dispatch = useDispatch();
-  let {
+  const dispatch = useDispatch();
+  const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
 
-  let onSubmit = ({ comment: commentText }) =>
+  const onSubmit = ({ comment: commentText }) =>
     dispatch(
       UpdatePostComment({
         commentText,

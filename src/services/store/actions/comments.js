@@ -13,7 +13,7 @@ import {
 export const getPostComments = (postId) => {
   return async (dispatch) => {
     dispatch(CommentLoadingStart());
-    let comments = await fetchPostComments(postId);
+    const comments = await fetchPostComments(postId);
     dispatch(getPostCommentsSuccess(comments));
     dispatch(CommentLoadingEnd());
   };

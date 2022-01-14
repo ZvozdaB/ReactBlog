@@ -4,13 +4,13 @@ import { PostForm } from "../../components/Form/PostForm";
 import { CreatePost } from "../../services/store/actions/posts";
 
 const AddPost = () => {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let { isUserLogin } = useSelector((state) => ({
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isUserLogin } = useSelector((state) => ({
     isUserLogin: state.auth.isUserLogin,
   }));
 
-  let onSubmit = (data) => {
+  const onSubmit = (data) => {
     dispatch(CreatePost(data));
     navigate("/");
   };

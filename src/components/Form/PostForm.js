@@ -9,7 +9,7 @@ const PostForm = ({
   label = { title: "Title", body: "Post Text" },
   placeholder = { title: "Add title", body: " Add post text" },
 }) => {
-  let {
+  const {
     register,
     handleSubmit,
     formState: { errors },

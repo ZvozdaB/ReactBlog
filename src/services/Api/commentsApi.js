@@ -9,8 +9,8 @@ export const fetchPostComments = async (postId) => {
   return date;
 };
 export const fetchCreatePostComment = async ({ body, postId }) => {
-  let date = new Date().toISOString();
-  let option = getOption("POST", {
+  const date = new Date().toISOString();
+  const option = getOption("POST", {
     body,
     postId,
     createdAt: date,
@@ -28,7 +28,7 @@ export const fetchCreatePostComment = async ({ body, postId }) => {
 };
 
 export const fetchDeletePostComments = async (commentId) => {
-  let option = getOption("DELETE");
+  const option = getOption("DELETE");
   let resp = await fetch(URL + `/664/comments/${commentId}`, option);
   if (resp.status === 401) {
     window.alert("Access token timeout, pleas re-login");
@@ -38,8 +38,8 @@ export const fetchDeletePostComments = async (commentId) => {
 };
 
 export const fetchUpdatePostComment = async (commentText, commentId) => {
-  let date = new Date().toISOString();
-  let option = getOption("PATCH", {
+  const date = new Date().toISOString();
+  const option = getOption("PATCH", {
     body: commentText,
     updatedAt: date,
   });

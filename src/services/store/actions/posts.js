@@ -15,82 +15,82 @@ import {
   POST_RESET_POST,
 } from "./actionType";
 
-export const getPostPages =(page) =>{
+export const getPostPages = (page) => {
   return async (dispatch) => {
     dispatch(PostLoadingStart());
-    let { data, lastPage, lastPost } = await fetchPostPages(page);
+    const { data, lastPage, lastPost } = await fetchPostPages(page);
     dispatch(getPostSuccess(data, lastPage, lastPost));
     dispatch(PostLoadingEnd());
   };
-}
-export const CreatePost=(postData)=> {
+};
+export const CreatePost = (postData) => {
   return async (dispatch) => {
     await fetchCreatePost(postData);
     dispatch(resetPost());
     dispatch(getPostPages(1));
   };
-}
+};
 
-export const DeletePost=(postId) =>{
+export const DeletePost = (postId) => {
   return async (dispatch) => {
     await fetchDeletePost(postId);
     dispatch(resetPost());
     dispatch(getPostPages(1));
   };
-}
-export const UpdatePost=(postData)=> {
+};
+export const UpdatePost = (postData) => {
   return async (dispatch) => {
     await fetchUpdatePost(postData);
     dispatch(resetPost());
     dispatch(getPostPages(1));
   };
-}
+};
 
-export const getPostById=(postId) =>{
+export const getPostById = (postId) => {
   return async (dispatch) => {
     dispatch(PostLoadingStart());
-    let post = await fetchPostById(postId);
+    const post = await fetchPostById(postId);
     dispatch(getPostByIdSuccess(post));
     dispatch(PostLoadingEnd());
   };
-}
+};
 
-export const getNextPage=()=> {
+export const getNextPage = () => {
   return {
     type: POST_GET_NEXT_PAGE,
   };
-}
-export const findPostByID=(data) =>{
+};
+export const findPostByID = (data) => {
   return {
     type: POST_FIND_POST_BY_ID,
     data,
   };
-}
-const resetPost=()=> {
+};
+const resetPost = () => {
   return {
     type: POST_RESET_POST,
   };
-}
+};
 
-const getPostByIdSuccess=(data)=> {
+const getPostByIdSuccess = (data) => {
   return {
     type: POST_GET_POST_BY_ID_SUCCESS,
     data,
   };
-}
+};
 
-const getPostSuccess=(data, lastPage, lastPost) =>{
+const getPostSuccess = (data, lastPage, lastPost) => {
   return {
     type: POSTS_GET_POSTS_SUCCESS,
     data,
     lastPage,
     lastPost,
   };
-}
+};
 
-const PostLoadingStart=() =>{
+const PostLoadingStart = () => {
   return { type: POSTS_LOADING_START };
-}
-const PostLoadingEnd=() =>{
+};
+const PostLoadingEnd = () => {
   return { type: POSTS_LOADING_END };
-}
+};

@@ -5,9 +5,9 @@ import { Btn } from "../../CommonUsed/Btn/Btn";
 import { QuestionBox } from "../../CommonUsed/QuestionBox/QuestionBox";
 
 const LogOutBtn = () => {
-  let dispatch = useDispatch();
-  let logOutQuestionOpen = usePopUp();
-  let logOut = () => {
+  const dispatch = useDispatch();
+  const logOutQuestionOpen = usePopUp();
+  const logOut = () => {
     dispatch(LogOut());
     logOutQuestionOpen.handler();
   };

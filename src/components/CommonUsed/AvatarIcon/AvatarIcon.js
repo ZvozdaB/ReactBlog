@@ -7,7 +7,7 @@ import Avatar5 from "../../../assets/avatar/avatar-5.svg";
 import Avatar6 from "../../../assets/avatar/avatar-6.svg";
 
 const AvatarIcon = ({ avatarId = 0, className }) => {
-  let avatarArr = [
+  const avatarArr = [
     Avatar,
     Avatar1,
     Avatar2,

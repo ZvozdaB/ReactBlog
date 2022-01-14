@@ -9,9 +9,9 @@ import { getPostComments } from "../services/store/actions/comments";
 import { findPostByID, getPostById } from "../services/store/actions/posts";
 
 const Post = () => {
-  let dispatch = useDispatch();
-  let { postId } = useParams();
-  let { posts, post, loading, loadingComments, user, isUserLogin } =
+  const dispatch = useDispatch();
+  const { postId } = useParams();
+  const { posts, post, loading, loadingComments, user, isUserLogin } =
     useSelector((state) => ({
       posts: state.posts.posts,
       post: state.posts.post,
@@ -22,7 +22,7 @@ const Post = () => {
     }));
 
   useEffect(() => {
-    let post = posts.find((post) => post.id === +postId);
+    const post = posts.find((post) => post.id === +postId);
     post ? dispatch(findPostByID(post)) : dispatch(getPostById(postId));
     dispatch(getPostComments(postId));
   }, [postId]);

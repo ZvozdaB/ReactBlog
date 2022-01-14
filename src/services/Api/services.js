@@ -1,13 +1,13 @@
 export const getUserData = () => {
-  let user = localStorage.getItem("user");
-  let {
+  const user = localStorage.getItem("user");
+  const {
     user: { id: userId },
     accessToken,
   } = JSON.parse(user);
   return { userId, accessToken };
 }
 export const getOption = (method, data) => {
-  let { accessToken, userId } = getUserData();
+  const { accessToken, userId } = getUserData();
 
   return {
     method,
@@ -20,15 +20,15 @@ export const getOption = (method, data) => {
 }
 
 export const getLastPage = (Link) => {
-  let linkArr = Link.split(",");
-  let link = linkArr[linkArr.length - 1];
-  let index = link.indexOf("_page=");
-  let last = parseInt(link.slice(index + 6));
+  const linkArr = Link.split(",");
+  const link = linkArr[linkArr.length - 1];
+  const index = link.indexOf("_page=");
+  const last = parseInt(link.slice(index + 6));
   return last;
 }
 
 export const validationPosts = (postsArr) => {
-  let posts = postsArr.filter(
+  const posts = postsArr.filter(
     (post) =>
       typeof post === "object" &&
       post.id &&

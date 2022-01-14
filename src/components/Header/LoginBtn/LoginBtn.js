@@ -6,11 +6,11 @@ import { LogInForm } from "../../Form/LogInForm";
 import { RegisterForm } from "../../Form/RegisterForm";
 
 const LoginBtn = () => {
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
   const resetError = () => dispatch(setError(""));
-  let logInOpen = usePopUp(resetError);
-  let singUpOpen = usePopUp(resetError);
-  let singLogChange = () => {
+  const logInOpen = usePopUp(resetError);
+  const singUpOpen = usePopUp(resetError);
+  const singLogChange = () => {
     singUpOpen.handler();
     logInOpen.handler();
   };

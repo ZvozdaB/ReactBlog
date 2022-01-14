@@ -17,7 +17,7 @@ import {
 export const getAnnoPages = (page) => {
   return async (dispatch) => {
     dispatch(AnnoLoadingStart());
-    let { data, lastAnnoPage, lastAnno } = await fetchAnnouncements(page);
+    const { data, lastAnnoPage, lastAnno } = await fetchAnnouncements(page);
     dispatch(getAnnoSuccess(data, lastAnnoPage, lastAnno));
     dispatch(AnnoLoadingEnd());
   };
@@ -25,7 +25,7 @@ export const getAnnoPages = (page) => {
 export const getAnnoById = (annoId) => {
   return async (dispatch) => {
     dispatch(AnnoLoadingStart());
-    let anno = await fetchAnnouncementsById(annoId);
+    const anno = await fetchAnnouncementsById(annoId);
     dispatch(getAnnoByIdSuccess(anno));
     dispatch(AnnoLoadingEnd());
   };

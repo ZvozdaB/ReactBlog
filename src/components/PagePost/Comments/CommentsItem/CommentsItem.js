@@ -10,10 +10,11 @@ const CommentsItem = ({
   editCommentNumber,
   userId,
 }) => {
-  let dispatch = useDispatch();
-  let onCancel = () => editCommentHandler(null);
-  let onDelete = () => dispatch(DeletePostComment(comment.id, comment.postId));
-  let user = comment.user;
+  const dispatch = useDispatch();
+  const onCancel = () => editCommentHandler(null);
+  const onDelete = () =>
+    dispatch(DeletePostComment(comment.id, comment.postId));
+  const user = comment.user;
   return (
     <>
       <li className="mb-3 flex group ">

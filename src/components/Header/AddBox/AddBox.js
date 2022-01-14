@@ -7,7 +7,7 @@ const addLink = [
 ];
 
 const AddBox = () => {
-  let addPopUpOpen = usePopUp();
+  const addPopUpOpen = usePopUp();
   return (
     <div className="relative pr-4 font-medium z-20">
       <p

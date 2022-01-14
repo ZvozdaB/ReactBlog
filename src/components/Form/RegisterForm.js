@@ -8,17 +8,17 @@ import { AvatarSelector } from "./FormComponents/AvatarSelector";
 import { Input } from "./FormComponents/Input";
 
 const RegisterForm = (props) => {
-  let dispatch = useDispatch();
-  let [avatarId, setAvatarId] = useState(1);
-  let { error } = useSelector((state) => ({
+  const dispatch = useDispatch();
+  const [avatarId, setAvatarId] = useState(1);
+  const { error } = useSelector((state) => ({
     error: state.auth.error,
   }));
-  let {
+  const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  let onSubmit = (data) =>
+  const onSubmit = (data) =>
     dispatch(UserRegister({ ...data, avatar: avatarId }));
 
   return (

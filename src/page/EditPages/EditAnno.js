@@ -8,15 +8,15 @@ import {
 } from "../../services/store/actions/announcements";
 
 const EditAnno = () => {
-  let { annoId } = useParams();
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let { anno, user } = useSelector((state) => ({
+  const { annoId } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { anno, user } = useSelector((state) => ({
     anno: state.anno.anno,
     user: state.auth.user,
   }));
 
-  let onSubmit = (data) => {
+  const onSubmit = (data) => {
     navigate("/announcements");
     dispatch(UpdateAnno({ ...data, annoId }));
   };

@@ -6,12 +6,12 @@ import { SubMenu } from "../CommonUsed/SubMenu/SubMenu";
 import { DeleteAnno } from "../../services/store/actions/announcements";
 
 const AnnoCard = ({ anno, userId }) => {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let onDelete = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const onDelete = () => {
     dispatch(DeleteAnno(anno.id));
   };
-  let onEdit = () => navigate(`/announcements/${anno.id}/edit`);
+  const onEdit = () => navigate(`/announcements/${anno.id}/edit`);
   return (
     <div className="  bg-white rounded-md p-4 shadow-lg">
       <div className="relative">
