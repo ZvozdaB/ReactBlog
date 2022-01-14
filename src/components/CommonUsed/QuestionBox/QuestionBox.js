@@ -1,7 +1,7 @@
-import Btn from "../Btn/Btn";
-import CenterPopUp from "../CenterPopUp/CenterPopUp";
+import { Btn } from "../Btn/Btn";
+import { CenterPopUp } from "../CenterPopUp/CenterPopUp";
 
-export default function QuestionBox({ YesText, YesClick, NoClick, question }) {
+const QuestionBox = ({ YesText, YesClick, NoClick, question }) => {
   return (
     <CenterPopUp onClick={NoClick}>
       <div className=" bg-white rounded-lg w-[210px] p-4 text-black">
@@ -15,4 +15,6 @@ export default function QuestionBox({ YesText, YesClick, NoClick, question }) {
       </div>
     </CenterPopUp>
   );
-}
+};
+
+export { QuestionBox };

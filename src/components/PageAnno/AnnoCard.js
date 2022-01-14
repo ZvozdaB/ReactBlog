@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import PostInfoBox from "../CommonUsed/PostInfoBox/PostInfoBox";
-import SubMenu from "../CommonUsed/SubMenu/SubMenu";
+import { PostInfoBox } from "../CommonUsed/PostInfoBox/PostInfoBox";
+import { SubMenu } from "../CommonUsed/SubMenu/SubMenu";
 import { DeleteAnno } from "../../services/store/actions/announcements";
 
-export default function AnnoCard({ anno, userId }) {
+const AnnoCard = ({ anno, userId }) => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let onDelete = () => {
@@ -28,4 +28,6 @@ export default function AnnoCard({ anno, userId }) {
       <p>{anno.body}</p>
     </div>
   );
-}
+};
+
+export { AnnoCard };

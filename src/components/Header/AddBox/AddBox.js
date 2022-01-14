@@ -6,7 +6,7 @@ const addLink = [
   { id: 2, text: "Announcements", path: "/addAnno" },
 ];
 
-export default function AddBox() {
+const AddBox = () => {
   let addPopUpOpen = usePopUp();
   return (
     <div className="relative pr-4 font-medium z-20">
@@ -53,4 +53,6 @@ export default function AddBox() {
       )}
     </div>
   );
-}
+};
+
+export { AddBox };

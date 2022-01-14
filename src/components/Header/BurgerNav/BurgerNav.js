@@ -5,6 +5,7 @@ import {
 } from "../../../custom hooks/setBlockScreen";
 import { usePopUp } from "../../../custom hooks/usePopUp";
 import classes from "./BurgerNav.module.css";
+
 const navLinks = [
   { id: 1, text: "Home", path: "/" },
   { id: 2, text: "Announcements", path: "/announcements" },
@@ -12,7 +13,7 @@ const navLinks = [
   { id: 4, text: "Add announcements", path: "/addAnno" },
 ];
 
-export default function BurgerNav() {
+const BurgerNav = () => {
   let menuOpen = usePopUp();
   let burgerClasses = menuOpen.value
     ? `${classes.burger} ${classes.open}`
@@ -59,4 +60,6 @@ export default function BurgerNav() {
       </div>
     </>
   );
-}
+};
+
+export { BurgerNav };

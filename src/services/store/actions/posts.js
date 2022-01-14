@@ -15,7 +15,7 @@ import {
   POST_RESET_POST,
 } from "./actionType";
 
-export function getPostPages(page) {
+export const getPostPages =(page) =>{
   return async (dispatch) => {
     dispatch(PostLoadingStart());
     let { data, lastPage, lastPost } = await fetchPostPages(page);
@@ -23,7 +23,7 @@ export function getPostPages(page) {
     dispatch(PostLoadingEnd());
   };
 }
-export function CreatePost(postData) {
+export const CreatePost=(postData)=> {
   return async (dispatch) => {
     await fetchCreatePost(postData);
     dispatch(resetPost());
@@ -31,14 +31,14 @@ export function CreatePost(postData) {
   };
 }
 
-export function DeletePost(postId) {
+export const DeletePost=(postId) =>{
   return async (dispatch) => {
     await fetchDeletePost(postId);
     dispatch(resetPost());
     dispatch(getPostPages(1));
   };
 }
-export function UpdatePost(postData) {
+export const UpdatePost=(postData)=> {
   return async (dispatch) => {
     await fetchUpdatePost(postData);
     dispatch(resetPost());
@@ -46,7 +46,7 @@ export function UpdatePost(postData) {
   };
 }
 
-export function getPostById(postId) {
+export const getPostById=(postId) =>{
   return async (dispatch) => {
     dispatch(PostLoadingStart());
     let post = await fetchPostById(postId);
@@ -55,31 +55,31 @@ export function getPostById(postId) {
   };
 }
 
-export function getNextPage() {
+export const getNextPage=()=> {
   return {
     type: POST_GET_NEXT_PAGE,
   };
 }
-export function findPostByID(data) {
+export const findPostByID=(data) =>{
   return {
     type: POST_FIND_POST_BY_ID,
     data,
   };
 }
-function resetPost() {
+const resetPost=()=> {
   return {
     type: POST_RESET_POST,
   };
 }
 
-function getPostByIdSuccess(data) {
+const getPostByIdSuccess=(data)=> {
   return {
     type: POST_GET_POST_BY_ID_SUCCESS,
     data,
   };
 }
 
-function getPostSuccess(data, lastPage, lastPost) {
+const getPostSuccess=(data, lastPage, lastPost) =>{
   return {
     type: POSTS_GET_POSTS_SUCCESS,
     data,
@@ -88,9 +88,9 @@ function getPostSuccess(data, lastPage, lastPost) {
   };
 }
 
-function PostLoadingStart() {
+const PostLoadingStart=() =>{
   return { type: POSTS_LOADING_START };
 }
-function PostLoadingEnd() {
+const PostLoadingEnd=() =>{
   return { type: POSTS_LOADING_END };
 }

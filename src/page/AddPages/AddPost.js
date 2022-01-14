@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import PostForm from "../../components/Form/PostForm";
+import { PostForm } from "../../components/Form/PostForm";
 import { CreatePost } from "../../services/store/actions/posts";
 
-export default function AddPost() {
+const AddPost = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let { isUserLogin } = useSelector((state) => ({
@@ -28,4 +28,6 @@ export default function AddPost() {
       )}
     </div>
   );
-}
+};
+
+export { AddPost };

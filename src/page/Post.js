@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import Comments from "../components/PagePost/Comments/Comments";
-import CommentForm from "../components/Form/CommentForm";
-import Loader from "../components/Loader/Loader";
-import PostDetails from "../components/PagePost/PostDetails";
+import { Comments } from "../components/PagePost/Comments/Comments";
+import { CommentForm } from "../components/Form/CommentForm";
+import { Loader } from "../components/Loader/Loader";
+import { PostDetails } from "../components/PagePost/PostDetails";
 import { getPostComments } from "../services/store/actions/comments";
 import { findPostByID, getPostById } from "../services/store/actions/posts";
 
-export default function Post() {
+const Post = () => {
   let dispatch = useDispatch();
   let { postId } = useParams();
   let { posts, post, loading, loadingComments, user, isUserLogin } =
@@ -44,4 +44,6 @@ export default function Post() {
       </div>
     </main>
   );
-}
+};
+
+export { Post };

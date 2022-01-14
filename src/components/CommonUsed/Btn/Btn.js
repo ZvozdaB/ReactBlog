@@ -1,4 +1,4 @@
-export default function Btn(props) {
+const Btn = (props) => {
   let classes = " py-2 px-3 rounded text-white text-center transition ";
 
   if (props.cancel) {
@@ -16,3 +16,5 @@ export default function Btn(props) {
     </button>
   );
 }
+
+export { Btn };

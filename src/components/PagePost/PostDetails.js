@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DeletePost } from "../../services/store/actions/posts";
-import PostInfoBox from "../CommonUsed/PostInfoBox/PostInfoBox";
-import SubMenu from "../CommonUsed/SubMenu/SubMenu";
+import { PostInfoBox } from "../CommonUsed/PostInfoBox/PostInfoBox";
+import { SubMenu } from "../CommonUsed/SubMenu/SubMenu";
 
-export default function PostDetails({ post, userId }) {
+const PostDetails = ({ post, userId }) => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let onDelete = () => {
@@ -28,4 +28,6 @@ export default function PostDetails({ post, userId }) {
       <p>{post?.body}</p>
     </div>
   );
-}
+};
+
+export { PostDetails };

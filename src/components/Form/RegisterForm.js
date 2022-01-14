@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { UserRegister } from "../../services/store/actions/auth";
-import Btn from "../CommonUsed/Btn/Btn";
-import CenterPopUp from "../CommonUsed/CenterPopUp/CenterPopUp";
+import { Btn } from "../CommonUsed/Btn/Btn";
+import { CenterPopUp } from "../CommonUsed/CenterPopUp/CenterPopUp";
 import { AvatarSelector } from "./FormComponents/AvatarSelector";
-import Input from "./FormComponents/Input";
+import { Input } from "./FormComponents/Input";
 
-export default function RegisterForm(props) {
+const RegisterForm = (props) => {
   let dispatch = useDispatch();
   let [avatarId, setAvatarId] = useState(1);
   let { error } = useSelector((state) => ({
@@ -110,4 +110,6 @@ export default function RegisterForm(props) {
       </form>
     </CenterPopUp>
   );
-}
+};
+
+export { RegisterForm };

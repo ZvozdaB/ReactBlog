@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { UpdatePostComment } from "../../../../services/store/actions/comments";
-import Btn from "../../../CommonUsed/Btn/Btn";
-import TextArea from "../../../Form/FormComponents/TextArea";
+import { Btn } from "../../../CommonUsed/Btn/Btn";
+import { TextArea } from "../../../Form/FormComponents/TextArea";
 
-export default function EditComment({ comment, onCancel }) {
+const EditComment = ({ comment, onCancel }) => {
   let dispatch = useDispatch();
   let {
     register,
@@ -44,4 +44,6 @@ export default function EditComment({ comment, onCancel }) {
       </div>
     </form>
   );
-}
+};
+
+export { EditComment };

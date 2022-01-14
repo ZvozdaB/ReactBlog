@@ -1,12 +1,14 @@
 const body = document.body;
 
-export function setBlockScrollOn() {
+const setBlockScrollOn = () => {
   if (!body.classList.contains("blocked")) {
     body.classList.add("blocked");
   }
-}
-export function setBlockScrollOff() {
+};
+const setBlockScrollOff = () => {
   if (body.classList.contains("blocked")) {
     body.classList.remove("blocked");
   }
-}
+};
+
+export { setBlockScrollOff, setBlockScrollOn };

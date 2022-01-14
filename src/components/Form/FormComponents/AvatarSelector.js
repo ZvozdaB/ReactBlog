@@ -1,6 +1,6 @@
-import AvatarIcon from "../../CommonUsed/AvatarIcon/AvatarIcon";
+import { AvatarIcon } from "../../CommonUsed/AvatarIcon/AvatarIcon";
 
-export function AvatarSelector({ setAvatarId, avatarId }) {
+const AvatarSelector = ({ setAvatarId, avatarId }) => {
   let arr = new Array(6).fill(1).map((item, index) => (item = index + 1));
   let selectAvatarClasses = "border-2 border-sky-500 rounded-full";
   return (
@@ -19,4 +19,6 @@ export function AvatarSelector({ setAvatarId, avatarId }) {
       ))}
     </div>
   );
-}
+};
+
+export { AvatarSelector };

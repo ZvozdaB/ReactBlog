@@ -1,14 +1,14 @@
 import { URL } from "./URL";
 import { getOption } from "./services";
 
-export async function fetchPostComments(postId) {
+export const fetchPostComments = async (postId) => {
   let resp = await fetch(
     URL + `/comments?postId=${postId}&_sort=updatedAt&_order=desc&_expand=user`
   );
   let date = await resp.json();
   return date;
-}
-export async function fetchCreatePostComment({ body, postId }) {
+};
+export const fetchCreatePostComment = async ({ body, postId }) => {
   let date = new Date().toISOString();
   let option = getOption("POST", {
     body,
@@ -25,9 +25,9 @@ export async function fetchCreatePostComment({ body, postId }) {
   } else if (resp.status === 401) {
     window.alert("Access token timeout, pleas re-login");
   }
-}
+};
 
-export async function fetchDeletePostComments(commentId) {
+export const fetchDeletePostComments = async (commentId) => {
   let option = getOption("DELETE");
   let resp = await fetch(URL + `/664/comments/${commentId}`, option);
   if (resp.status === 401) {
@@ -35,9 +35,9 @@ export async function fetchDeletePostComments(commentId) {
   } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
-}
+};
 
-export async function fetchUpdatePostComment(commentText, commentId) {
+export const fetchUpdatePostComment = async (commentText, commentId) => {
   let date = new Date().toISOString();
   let option = getOption("PATCH", {
     body: commentText,
@@ -49,4 +49,4 @@ export async function fetchUpdatePostComment(commentText, commentId) {
   } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
-}
+};

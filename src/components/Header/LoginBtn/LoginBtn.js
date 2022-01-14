@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
 import { usePopUp } from "../../../custom hooks/usePopUp";
 import { setError } from "../../../services/store/actions/auth";
-import Btn from "../../CommonUsed/Btn/Btn";
-import LogInForm from "../../Form/LogInForm";
-import RegisterForm from "../../Form/RegisterForm";
+import { Btn } from "../../CommonUsed/Btn/Btn";
+import { LogInForm } from "../../Form/LogInForm";
+import { RegisterForm } from "../../Form/RegisterForm";
 
-export default function LoginBtn() {
+const LoginBtn = () => {
   let dispatch = useDispatch();
   const resetError = () => dispatch(setError(""));
   let logInOpen = usePopUp(resetError);
@@ -33,4 +33,6 @@ export default function LoginBtn() {
       )}
     </>
   );
-}
+};
+
+export { LoginBtn };

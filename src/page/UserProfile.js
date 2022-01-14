@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import AvatarIcon from "../components/CommonUsed/AvatarIcon/AvatarIcon";
+import { AvatarIcon } from "../components/CommonUsed/AvatarIcon/AvatarIcon";
 
-export default function UserProfile() {
+const UserProfile = () => {
   let { user } = useSelector((state) => ({ user: state.auth.user }));
   return (
     <main className="wrapper pt-6">
@@ -24,4 +24,6 @@ export default function UserProfile() {
       </div>
     </main>
   );
-}
+};
+
+export { UserProfile };

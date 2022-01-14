@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import CommentsItem from "./CommentsItem/CommentsItem";
+import { CommentsItem } from "./CommentsItem/CommentsItem";
 
-
-export default function Comments() {
+const Comments = () => {
   let { comments, userId } = useSelector((state) => ({
     comments: state.comments.comments,
     userId: state.auth.user.id,
@@ -27,4 +26,6 @@ export default function Comments() {
       )}
     </ul>
   );
-}
+};
+
+export { Comments };

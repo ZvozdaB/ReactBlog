@@ -1,9 +1,9 @@
 import editIcon from "../../../assets/icon/edit.svg";
 import deleteIcon from "../../../assets/icon/delete.svg";
-import QuestionBox from "../QuestionBox/QuestionBox";
+import { QuestionBox } from "../QuestionBox/QuestionBox";
 import { usePopUp } from "../../../custom hooks/usePopUp";
-
-export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
+// TODO icon import ?
+const SubMenu = ({ onEdit, onDelete, deleteQuestion }) => {
   let subMenuOpen = usePopUp();
   let deleteBoxOpen = usePopUp();
 
@@ -57,4 +57,6 @@ export default function SubMenu({ onEdit, onDelete, deleteQuestion }) {
       )}
     </>
   );
-}
+};
+
+export { SubMenu };

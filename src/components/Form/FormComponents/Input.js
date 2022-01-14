@@ -1,4 +1,4 @@
-export default function Input({
+const Input = ({
   label,
   id,
   type = "text",
@@ -6,7 +6,7 @@ export default function Input({
   error,
   placeholder,
   className,
-}) {
+}) => {
   let inputCls =
     "border py-1 px-2 focus:outline-none focus:border-sky-500 focus:rounded hover:shadow ";
   inputCls += error ? " border-red-400 " : "";
@@ -25,4 +25,6 @@ export default function Input({
       {error && <p className="text-red-400">{error.message}</p>}
     </div>
   );
-}
+};
+
+export { Input };

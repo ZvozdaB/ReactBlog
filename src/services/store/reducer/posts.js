@@ -16,7 +16,7 @@ const initialState = {
   lastPost: null,
   loading: false,
 };
-export function postsReducer(state = initialState, action) {
+export const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case POSTS_LOADING_START:
       return {
@@ -54,4 +54,4 @@ export function postsReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};

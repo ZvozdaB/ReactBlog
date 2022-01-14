@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import AddBox from "../AddBox/AddBox";
+import { AddBox } from "../AddBox/AddBox";
 
 const navLink = [
   { id: 1, text: "Home", path: "/" },
   { id: 2, text: "Announcements", path: "/announcements" },
 ];
 
-export default function NavHeader() {
+const NavHeader = () => {
   return (
     <nav className="hidden md:flex items-center">
       {navLink.map((nav) => (
@@ -25,4 +25,6 @@ export default function NavHeader() {
       <AddBox />
     </nav>
   );
-}
+};
+
+export { NavHeader };

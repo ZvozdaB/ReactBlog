@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function usePopUp(func) {
+const usePopUp = (func) => {
   let [popUp, setPopUp] = useState(false);
 
   let handler = () => {
@@ -15,4 +15,6 @@ export function usePopUp(func) {
     reset,
     on,
   };
-}
+};
+
+export { usePopUp };

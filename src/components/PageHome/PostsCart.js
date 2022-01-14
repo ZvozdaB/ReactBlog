@@ -2,10 +2,10 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { sliceText } from "../../custom hooks/sliceText";
 import { DeletePost } from "../../services/store/actions/posts";
-import PostInfoBox from "../CommonUsed/PostInfoBox/PostInfoBox";
-import SubMenu from "../CommonUsed/SubMenu/SubMenu";
+import { PostInfoBox } from "../CommonUsed/PostInfoBox/PostInfoBox";
+import { SubMenu } from "../CommonUsed/SubMenu/SubMenu";
 
-export default function PostsCart({ post, userId }) {
+const PostsCart = ({ post, userId }) => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let onDelete = () => {
@@ -30,4 +30,6 @@ export default function PostsCart({ post, userId }) {
       <Link to={"/post/" + post.id} className="absolute inset-0"></Link>
     </div>
   );
-}
+};
+
+export { PostsCart };

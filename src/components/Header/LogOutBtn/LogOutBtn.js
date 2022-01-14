@@ -1,10 +1,10 @@
 import { useDispatch } from "react-redux";
 import { usePopUp } from "../../../custom hooks/usePopUp";
 import { LogOut } from "../../../services/store/actions/auth";
-import Btn from "../../CommonUsed/Btn/Btn";
-import QuestionBox from "../../CommonUsed/QuestionBox/QuestionBox";
+import { Btn } from "../../CommonUsed/Btn/Btn";
+import { QuestionBox } from "../../CommonUsed/QuestionBox/QuestionBox";
 
-export default function LogOutBtn() {
+const LogOutBtn = () => {
   let dispatch = useDispatch();
   let logOutQuestionOpen = usePopUp();
   let logOut = () => {
@@ -27,4 +27,6 @@ export default function LogOutBtn() {
       )}
     </>
   );
-}
+};
+
+export { LogOutBtn };

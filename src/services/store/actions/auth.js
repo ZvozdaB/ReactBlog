@@ -1,7 +1,7 @@
 import { fetchLogIN, fetchRegister } from "../../Api/userApi";
 import { AUTH_LOGOUT, AUTH_SET_ERROR, AUTH_SET_USER } from "./actionType";
 
-export function LogIn(email, password) {
+export const LogIn = (email, password) => {
   return async (dispatch) => {
     fetchLogIN(email, password)
       .then((user) => {
@@ -11,8 +11,8 @@ export function LogIn(email, password) {
       })
       .catch((err) => dispatch(setError("Email or password not correct")));
   };
-}
-export function UserRegister(userData) {
+};
+export const UserRegister = (userData) => {
   return async (dispatch) => {
     fetchRegister(userData)
       .then((user) => {
@@ -22,9 +22,9 @@ export function UserRegister(userData) {
       })
       .catch((err) => dispatch(setError("Email already exists")));
   };
-}
+};
 
-export function isUserLogIn() {
+export const isUserLogIn = () => {
   return async (dispatch) => {
     let data = localStorage.getItem("user");
     if (data) {
@@ -32,23 +32,23 @@ export function isUserLogIn() {
       dispatch(setUser(user.user));
     }
   };
-}
-export function LogOut() {
+};
+export const LogOut = () => {
   localStorage.removeItem("user");
   localStorage.removeItem("accessToken");
   return {
     type: AUTH_LOGOUT,
   };
-}
-export function setError(error) {
+};
+export const setError = (error) => {
   return {
     type: AUTH_SET_ERROR,
     error,
   };
-}
-function setUser(user) {
+};
+const setUser = (user) => {
   return {
     type: AUTH_SET_USER,
     user: user,
   };
-}
+};

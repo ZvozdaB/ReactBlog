@@ -1,4 +1,4 @@
-export function getUserData() {
+export const getUserData = () => {
   let user = localStorage.getItem("user");
   let {
     user: { id: userId },
@@ -6,7 +6,7 @@ export function getUserData() {
   } = JSON.parse(user);
   return { userId, accessToken };
 }
-export function getOption(method, data) {
+export const getOption = (method, data) => {
   let { accessToken, userId } = getUserData();
 
   return {
@@ -19,7 +19,7 @@ export function getOption(method, data) {
   };
 }
 
-export function getLastPage(Link) {
+export const getLastPage = (Link) => {
   let linkArr = Link.split(",");
   let link = linkArr[linkArr.length - 1];
   let index = link.indexOf("_page=");
@@ -27,7 +27,7 @@ export function getLastPage(Link) {
   return last;
 }
 
-export function validationPosts(postsArr) {
+export const validationPosts = (postsArr) => {
   let posts = postsArr.filter(
     (post) =>
       typeof post === "object" &&

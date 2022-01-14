@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import Btn from "../CommonUsed/Btn/Btn";
-import TextArea from "./FormComponents/TextArea";
+import { Btn } from "../CommonUsed/Btn/Btn";
+import { TextArea } from "./FormComponents/TextArea";
 
-export default function PostForm({
+const PostForm = ({
   onSubmit,
   textObg,
   label = { title: "Title", body: "Post Text" },
   placeholder = { title: "Add title", body: " Add post text" },
-}) {
+}) => {
   let {
     register,
     handleSubmit,
@@ -50,4 +50,6 @@ export default function PostForm({
       </div>
     </form>
   );
-}
+};
+
+export { PostForm };

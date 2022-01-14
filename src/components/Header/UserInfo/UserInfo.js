@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import AvatarIcon from "../../CommonUsed/AvatarIcon/AvatarIcon";
+import { AvatarIcon } from "../../CommonUsed/AvatarIcon/AvatarIcon";
 
-export default function UserInfo({ user }) {
+const UserInfo = ({ user }) => {
   return (
     <div className="flex items-center mr-4">
       <Link to="/user" className="group ml-auto flex items-center">
@@ -15,4 +15,6 @@ export default function UserInfo({ user }) {
       </Link>
     </div>
   );
-}
+};
+
+export { UserInfo };

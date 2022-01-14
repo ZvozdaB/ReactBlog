@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import PostForm from "../../components/Form/PostForm";
+import { PostForm } from "../../components/Form/PostForm";
 import {
   findPostByID,
   getPostById,
   UpdatePost,
 } from "../../services/store/actions/posts";
 
-export default function EditPost() {
+const EditPost = () => {
   let { postId } = useParams();
   let navigate = useNavigate();
   let dispatch = useDispatch();
@@ -41,4 +41,6 @@ export default function EditPost() {
       )}
     </div>
   );
-}
+};
+
+export { EditPost };

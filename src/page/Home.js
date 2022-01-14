@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import Btn from "../components//CommonUsed/Btn/Btn";
-import Loader from "../components/Loader/Loader";
-import PostsCart from "../components/PageHome/PostsCart";
+import { Btn } from "../components//CommonUsed/Btn/Btn";
+import { Loader } from "../components/Loader/Loader";
+import { PostsCart } from "../components/PageHome/PostsCart";
 import { getNextPage } from "../services/store/actions/posts";
 
-export default function Home(props) {
+const Home = (props) => {
   let dispatch = useDispatch();
   let { posts, lastPage, loading, currentPage, user } = useSelector(
     (state) => ({
@@ -31,4 +31,6 @@ export default function Home(props) {
       {loading && <Loader />}
     </main>
   );
-}
+};
+
+export { Home };

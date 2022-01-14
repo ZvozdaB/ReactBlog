@@ -15,7 +15,7 @@ const initialState = {
   lastAnno: null,
   loading: false,
 };
-export function announcementsReducer(state = initialState, action) {
+export const announcementsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ANNO_LOADING_START:
       return {
@@ -51,4 +51,4 @@ export function announcementsReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};

@@ -1,7 +1,7 @@
 import { URL } from "./URL";
 import { getOption, getLastPage } from "./services";
 
-export async function fetchAnnouncements(page, limit = 10) {
+export const fetchAnnouncements = async (page, limit = 10) => {
   let resp = await fetch(
     URL +
       `/announcements?_page=${page}&_limit=${limit}&_sort=updatedAt&_order=desc&_expand=user`
@@ -10,14 +10,14 @@ export async function fetchAnnouncements(page, limit = 10) {
   let lastAnno = resp.headers.get("X-Total-Count");
   let data = await resp.json();
   return { data, lastAnnoPage, lastAnno };
-}
-export async function fetchAnnouncementsById(annoId) {
+};
+export const fetchAnnouncementsById = async (annoId) => {
   let resp = await fetch(URL + `/announcements/${annoId}?_expand=user`);
   let date = await resp.json();
   return date;
-}
+};
 
-export async function fetchCreateAnnouncements({ body, title }) {
+export const fetchCreateAnnouncements = async ({ body, title }) => {
   let date = new Date().toISOString();
   let option = getOption("POST", {
     body,
@@ -35,9 +35,9 @@ export async function fetchCreateAnnouncements({ body, title }) {
   } else {
     window.alert("Something went wrong");
   }
-}
+};
 
-export async function fetchDeleteAnnouncements(annoId) {
+export const fetchDeleteAnnouncements = async (annoId) => {
   let option = getOption("DELETE");
   let resp = await fetch(URL + `/664/announcements/${annoId}`, option);
   if (resp.status === 401) {
@@ -45,9 +45,9 @@ export async function fetchDeleteAnnouncements(annoId) {
   } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
-}
+};
 
-export async function fetchUpdateAnnouncements({ title, body, annoId }) {
+export const fetchUpdateAnnouncements = async ({ title, body, annoId }) => {
   let date = new Date().toISOString();
   let option = getOption("PATCH", { body, title, updatedAt: date });
 
@@ -57,4 +57,4 @@ export async function fetchUpdateAnnouncements({ title, body, annoId }) {
   } else if (resp.status !== 200) {
     window.alert("Something went wrong");
   }
-}
+};

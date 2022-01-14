@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import PostForm from "../../components/Form/PostForm";
+import { PostForm } from "../../components/Form/PostForm";
 import { CreateAnno } from "../../services/store/actions/announcements";
 
-export default function AddAnno() {
+const AddAnno = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let { isUserLogin } = useSelector((state) => ({
@@ -32,4 +32,6 @@ export default function AddAnno() {
       )}
     </div>
   );
-}
+};
+
+export { AddAnno };

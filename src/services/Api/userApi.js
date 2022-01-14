@@ -1,6 +1,6 @@
 import { URL } from "./URL";
 
-export async function fetchLogIN(email, password) {
+export const fetchLogIN = async (email, password) => {
   let option = {
     method: "POST",
     headers: {
@@ -15,9 +15,9 @@ export async function fetchLogIN(email, password) {
     return data;
   }
   throw new Error(resp.status);
-}
+};
 
-export async function fetchRegister(userData) {
+export const fetchRegister = async (userData) => {
   let option = {
     method: "POST",
     headers: {
@@ -32,4 +32,4 @@ export async function fetchRegister(userData) {
     return data;
   }
   throw new Error(resp.status);
-}
+};

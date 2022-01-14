@@ -1,15 +1,15 @@
 import { useDispatch } from "react-redux";
-import SubMenu from "../../../CommonUsed/SubMenu/SubMenu";
+import { SubMenu } from "../../../CommonUsed/SubMenu/SubMenu";
 import { DeletePostComment } from "../../../../services/store/actions/comments";
-import AvatarIcon from "../../../CommonUsed/AvatarIcon/AvatarIcon";
-import EditComment from "../EditComment/EditComment";
+import { AvatarIcon } from "../../../CommonUsed/AvatarIcon/AvatarIcon";
+import { EditComment } from "../EditComment/EditComment";
 
-export default function CommentsItem({
+const CommentsItem = ({
   comment,
   editCommentHandler,
   editCommentNumber,
   userId,
-}) {
+}) => {
   let dispatch = useDispatch();
   let onCancel = () => editCommentHandler(null);
   let onDelete = () => dispatch(DeletePostComment(comment.id, comment.postId));
@@ -38,4 +38,6 @@ export default function CommentsItem({
       </li>
     </>
   );
-}
+};
+
+export { CommentsItem };

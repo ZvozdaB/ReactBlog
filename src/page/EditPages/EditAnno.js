@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import PostForm from "../../components/Form/PostForm";
+import { PostForm } from "../../components/Form/PostForm";
 import {
   getAnnoById,
   UpdateAnno,
 } from "../../services/store/actions/announcements";
 
-export default function EditAnno() {
+const EditAnno = () => {
   let { annoId } = useParams();
   let navigate = useNavigate();
   let dispatch = useDispatch();
@@ -42,4 +42,6 @@ export default function EditAnno() {
       )}
     </div>
   );
-}
+};
+
+export { EditAnno };

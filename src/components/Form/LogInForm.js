@@ -1,13 +1,12 @@
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { LogIn } from "../../services/store/actions/auth";
-import Btn from "../CommonUsed/Btn/Btn";
-import CenterPopUp from "../CommonUsed/CenterPopUp/CenterPopUp";
+import { Btn } from "../CommonUsed/Btn/Btn";
+import { CenterPopUp } from "../CommonUsed/CenterPopUp/CenterPopUp";
 
-import Input from "./FormComponents/Input";
+import { Input } from "./FormComponents/Input";
 
-export default function LogInForm(props) {
+const LogInForm = (props) => {
   let dispatch = useDispatch();
   let { error } = useSelector((state) => ({
     error: state.auth.error,
@@ -74,4 +73,6 @@ export default function LogInForm(props) {
       </form>
     </CenterPopUp>
   );
-}
+};
+
+export { LogInForm };

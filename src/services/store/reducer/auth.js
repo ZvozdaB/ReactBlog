@@ -9,7 +9,7 @@ const initialState = {
   isUserLogin: false,
   error: "",
 };
-export function authReducer(state = initialState, action) {
+export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_SET_USER:
       return { ...state, user: action.user, isUserLogin: true };
@@ -21,4 +21,4 @@ export function authReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};

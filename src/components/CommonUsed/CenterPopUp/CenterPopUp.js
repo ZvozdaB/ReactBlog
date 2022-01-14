@@ -4,7 +4,7 @@ import {
   setBlockScrollOn,
 } from "../../../custom hooks/setBlockScreen";
 
-export default function CenterPopUp({ onClick, children }) {
+const CenterPopUp = ({ onClick, children }) => {
   useEffect(() => {
     setBlockScrollOn();
     return () => setBlockScrollOff();
@@ -22,4 +22,6 @@ export default function CenterPopUp({ onClick, children }) {
       </div>
     </>
   );
-}
+};
+
+export { CenterPopUp };

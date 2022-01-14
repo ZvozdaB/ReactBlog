@@ -10,44 +10,44 @@ import {
   COMMENT_LOADING_START,
 } from "./actionType";
 
-export function getPostComments(postId) {
+export const getPostComments = (postId) => {
   return async (dispatch) => {
     dispatch(CommentLoadingStart());
     let comments = await fetchPostComments(postId);
     dispatch(getPostCommentsSuccess(comments));
     dispatch(CommentLoadingEnd());
   };
-}
+};
 
-export function CreatePostComment(commentData) {
+export const CreatePostComment = (commentData) => {
   return async (dispatch) => {
     await fetchCreatePostComment(commentData);
     dispatch(getPostComments(commentData.postId));
   };
-}
-export function UpdatePostComment({ commentText, commentId, postId }) {
+};
+export const UpdatePostComment = ({ commentText, commentId, postId }) => {
   return async (dispatch) => {
     await fetchUpdatePostComment(commentText, commentId);
     dispatch(getPostComments(postId));
   };
-}
-export function DeletePostComment(commentId, postId) {
+};
+export const DeletePostComment = (commentId, postId) => {
   return async (dispatch) => {
     await fetchDeletePostComments(commentId);
     dispatch(getPostComments(postId));
   };
-}
+};
 
-function getPostCommentsSuccess(comments) {
+const getPostCommentsSuccess = (comments) => {
   return {
     type: COMMENT_GET_POST_COMMENT_SUCCESS,
     comments,
   };
-}
+};
 
-function CommentLoadingStart() {
+const CommentLoadingStart = () => {
   return { type: COMMENT_LOADING_START };
-}
-function CommentLoadingEnd() {
+};
+const CommentLoadingEnd = () => {
   return { type: COMMENT_LOADING_END };
-}
+};

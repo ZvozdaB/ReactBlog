@@ -1,8 +1,8 @@
-import NavHeader from "./NavHeader/NavHeader";
-import AuthBox from "./AuthBox/AuthBox";
-import BurgerNav from "./BurgerNav/BurgerNav";
+import { NavHeader } from "./NavHeader/NavHeader";
+import { AuthBox } from "./AuthBox/AuthBox";
+import { BurgerNav } from "./BurgerNav/BurgerNav";
 
-export default function Header() {
+const Header = () => {
   return (
     <header className="bg-blue-400 shadow-md text-white relative">
       <div className="flex wrapper h-14 items-center justify-end md:justify-between relative">
@@ -12,4 +12,6 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+
+export { Header };

@@ -2,12 +2,11 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { CreatePostComment } from "../../services/store/actions/comments";
-import AvatarIcon from "../CommonUsed/AvatarIcon/AvatarIcon";
-import Btn from "../CommonUsed/Btn/Btn";
+import {AvatarIcon} from "../CommonUsed/AvatarIcon/AvatarIcon";
+import {Btn} from "../CommonUsed/Btn/Btn";
+import {TextArea} from "./FormComponents/TextArea";
 
-import TextArea from "./FormComponents/TextArea";
-
-export default function CommentForm({ avatar }) {
+const CommentForm = ({ avatar }) => {
   let { postId } = useParams();
   let dispatch = useDispatch();
   let {
@@ -40,4 +39,6 @@ export default function CommentForm({ avatar }) {
       </div>
     </form>
   );
-}
+};
+
+export { CommentForm };

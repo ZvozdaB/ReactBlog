@@ -1,7 +1,7 @@
 import { getDate } from "../../../custom hooks/getDate";
-import AvatarIcon from "../AvatarIcon/AvatarIcon";
+import { AvatarIcon } from "../AvatarIcon/AvatarIcon";
 
-export default function PostInfoBox({ user, updatedAt }) {
+const PostInfoBox = ({ user, updatedAt }) => {
   return (
     <div className="mb-2  flex items-center">
       <AvatarIcon avatarId={user?.avatar} />
@@ -13,4 +13,6 @@ export default function PostInfoBox({ user, updatedAt }) {
       </div>
     </div>
   );
-}
+};
+
+export { PostInfoBox };

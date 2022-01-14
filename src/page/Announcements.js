@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import AnnoCard from "../components/PageAnno/AnnoCard";
-import Btn from "../components/CommonUsed/Btn/Btn";
-import Loader from "../components/Loader/Loader";
+import { AnnoCard } from "../components/PageAnno/AnnoCard";
+import { Btn } from "../components/CommonUsed/Btn/Btn";
+import { Loader } from "../components/Loader/Loader";
 import { getNextAnnoPage } from "../services/store/actions/announcements";
 
-export default function Announcements() {
+const Announcements = () => {
   let dispatch = useDispatch();
   let { annons, lastAnnoPage, loading, currentAnnoPage, user } = useSelector(
     (state) => ({
@@ -36,4 +36,6 @@ export default function Announcements() {
       {loading && <Loader />}
     </main>
   );
-}
+};
+
+export { Announcements };

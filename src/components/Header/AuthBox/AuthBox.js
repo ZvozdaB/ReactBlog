@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import LoginBtn from "../LoginBtn/LoginBtn";
-import LogOutBtn from "../LogOutBtn/LogOutBtn";
-import UserInfo from "../UserInfo/UserInfo";
+import { LoginBtn } from "../LoginBtn/LoginBtn";
+import { LogOutBtn } from "../LogOutBtn/LogOutBtn";
+import { UserInfo } from "../UserInfo/UserInfo";
 
-export default function AuthBox() {
+const AuthBox = () => {
   let { user, isUserLogin } = useSelector((state) => ({
     user: state.auth.user,
     isUserLogin: state.auth.isUserLogin,
@@ -20,4 +20,6 @@ export default function AuthBox() {
       )}
     </div>
   );
-}
+};
+
+export { AuthBox };

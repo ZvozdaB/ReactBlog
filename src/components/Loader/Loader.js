@@ -1,6 +1,6 @@
 import classes from "./Loader.module.css";
 
-export default function Loader() {
+const Loader = () => {
   return (
     <div className={classes.container}>
       <span className={classes.circle}></span>
@@ -9,4 +9,6 @@ export default function Loader() {
       <span className={classes.circle}></span>
     </div>
   );
-}
+};
+
+export { Loader };
