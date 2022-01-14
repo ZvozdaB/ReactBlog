@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Btn } from "../components//CommonUsed/Btn/Btn";
+import { Btn } from "../components/CommonUsed/Btn/Btn";
 import { Loader } from "../components/Loader/Loader";
 import { PostsCart } from "../components/PageHome/PostsCart";
 import { getNextPage } from "../services/store/actions/posts";
